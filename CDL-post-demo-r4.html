@@ -108,6 +108,8 @@ button, input { font: inherit; }
 
 /* transparent nav over a photo band until scroll */
 .topbar { transition: background-color .35s var(--ease), border-color .35s var(--ease); }
+.topbar.over-light { background: transparent; backdrop-filter: none; border-bottom-color: transparent; } /* light header bands: see-through bar, dark logo and links */
+.topbar.over-light.open { background: rgba(244,244,242,.97); }
 .topbar.over { background: transparent; backdrop-filter: none; border-bottom-color: transparent; }
 .topbar.over .nav-links a, .topbar.over .nav-login { color: var(--white); }
 .topbar.over .nav-links a[aria-current="page"], .topbar.over .nav-dd-btn[aria-current="page"] { background: rgba(255,255,255,.16); }
@@ -145,6 +147,7 @@ button, input { font: inherit; }
 .foot ul { list-style: none; } .foot li { margin-bottom: 8px; }
 .foot li a { text-decoration: none; color: var(--muted); } .foot li a:hover { color: var(--text); }
 .foot .legal { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 12.5px; color: var(--muted-2); }
+.foot .legal a { color: var(--muted); margin-left: 18px; text-decoration: underline; text-decoration-color: rgba(91,102,117,.35); text-underline-offset: 3px; } .foot .legal a:hover { color: var(--text); text-decoration-color: currentColor; }
 @media (max-width: 860px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 body[data-only] main > :not(.keep), body[data-only] > :not(main):not(.keep) { display: none !important; }
 
@@ -256,6 +259,12 @@ img.skel-src.on { opacity: 1; }
 .art figure { margin: 40px 0; } .art figcaption { font-size: 13.5px; line-height: 20px; color: var(--muted); margin-top: 12px; }
 .art .photo { border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 9; background: var(--indigo); } .art .photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
 /* CDL document artifact */
+/* platform wall: the real logos of the sites that publish import records. Replaces the sample exposure report. */
+.platwall { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: var(--shadow-card); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.platwall .pl { display: flex; align-items: center; justify-content: center; gap: 8px; height: 64px; padding: 0 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--ground); color: var(--c); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; min-width: 0; }
+.platwall .pl img { height: 24px; width: auto; display: block; } .platwall .pl img.wide { height: 22px; max-width: 100%; }
+.platwall .more { grid-column: 1 / -1; text-align: center; font-size: 13px; color: var(--muted-2); padding-top: 4px; }
+@media (max-width: 700px) { .platwall { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; } .platwall .pl { height: 56px; font-size: 16px; } }
 .paper { background: var(--white); border: 1px solid var(--line); border-top: 5px solid var(--indigo); border-radius: 6px; padding: 24px 30px 20px; box-shadow: 0 1px 2px rgba(20,30,50,.06), 0 28px 56px -28px rgba(20,30,50,.4); font-size: 14px; line-height: 21px; }
 .ph-head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px; border-bottom: 2px solid var(--indigo); } .ph-head img { height: 28px; }
 .ph-meta { text-align: right; } .ph-meta b { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--indigo); } .ph-meta span { display: block; font-size: 11px; color: var(--muted); }
@@ -300,6 +309,11 @@ img.skel-src.on { opacity: 1; }
 @media (max-width: 1180px) { .art-wrap { grid-template-columns: minmax(0, 720px); } .rail { display: none; } .glance { grid-template-columns: repeat(2, 1fr); } .band.article h1 { font-size: 40px; line-height: 46px; } }
 @media (max-width: 720px) { .steps4 { grid-template-columns: 1fr 1fr; } .cal { grid-template-columns: repeat(4, 1fr); } .related .posts { grid-template-columns: 1fr; } }
 section[id], [data-anchor] { scroll-margin-top: 76px; }
+/* fluid type: headlines scale with the window instead of jumping at 960px; larger menu text */
+.nav-links a, .nav-login, .nav-dd-btn { font-size: 16px; }
+.nav-right .pill-sm { font-size: 15px; height: 40px; padding: 0 18px; }
+.band.article h1 { font-size: clamp(34px, 3.9vw, 60px); line-height: 1.1; }
+/* end fluid type */
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -335,7 +349,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 <body>
 <div class="pskel v-band" id="pskel" aria-hidden="true"><div class="pskel-hero"><div class="pskel-lines"><i class="h w80"></i><i class="w40"></i></div></div><div class="pskel-shell"><div class="pskel-row"><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div></div><div class="pskel-row"><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class=""></i><i class="w60"></i></div></div></div></div></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar" id="topbar">
+<header class="topbar over" id="topbar">
   <div class="shell nav-in">
     <a href="CDL-home-demo-r4.html" aria-label="Customs Data Lock home"><img class="nav-logo std" src="logo/official/cdl-logo-dark-for-light-bg.png" alt="Customs Data Lock"><img class="nav-logo rev" src="logo/official/cdl-logo-light-for-dark-bg.png" alt="" aria-hidden="true"></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
@@ -378,15 +392,8 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
     <p class="lead">There is a kitchenware importer in Ohio doing about forty million dollars a year. We have never spoken to them. In <em class="hl">thirty seconds</em> we knew who makes their pans, which port they land at, and roughly how many containers arrive each month.</p>
     <h2 id="s1">The search</h2>
     <p>The tools are free and they are not hidden. Type a company name into ImportYeti, Panjiva or Import Genius and the page loads before you finish the thought. No account for the basics. <em class="hl key">No warning to the company whose name you typed.</em></p>
-    <p>We did exactly that, the way a competitor or a copycat would. Here is what came back, with the name and a few numbers changed.</p>
-    <figure><div class="paper">
-  <div class="ph-head"><img src="logo/official/cdl-logo-dark-for-light-bg.png" alt="Customs Data Lock"><div class="ph-meta"><b>Exposure report</b><span>Sep 2026 · sample</span></div></div>
-  <div class="ph-block"><div class="ph-kicker">Prepared for</div><div class="ph-title">A kitchenware importer, Ohio</div><div class="ph-sub">30-second lookup · 18 platforms checked · name withheld</div><div class="ph-pill">11 of 18 platforms show their records</div></div>
-  <div class="ps"><h4>What is public <em>1,204 records · 4 suppliers named · 9 product codes</em></h4>
-    <table><tr><th>Platform</th><th>Records</th><th>Latest</th><th class="r">Suppliers named</th></tr>
-    <tr><td><span class="plg" style="--c:#004E66"><img src="platform-logos/importyeti-mark.png" alt=""><b>ImportYeti</b></span></td><td>412</td><td>Aug 2026</td><td class="r">4</td></tr><tr><td><span class="plg" style="--c:#D6002A"><b>Panjiva</b></span></td><td>388</td><td>Aug 2026</td><td class="r">4</td></tr><tr><td><span class="plg" style="--c:#0A7EF1"><img class="wide" src="platform-logos/importgenius.svg" alt="Import Genius"></span></td><td>404</td><td>Jul 2026</td><td class="r">3</td></tr><tr><td style="color:var(--muted-2)">8 more platforms showing</td><td></td><td></td><td></td></tr></table></div>
-  <div class="ph-foot"><span><b>Customs Data Lock</b> · Sample report · Details changed to protect the company</span><span>Page 1 of 3</span></div>
-</div><figcaption>The first page of the report we send after a lookup. This one is a real company with the name and a few numbers changed.</figcaption></figure>
+    <p>We did exactly that, the way a competitor or a copycat would. These are some of the places the answer came back from.</p>
+    <figure><div class="platwall" role="img" aria-label="ImportYeti, Panjiva, Import Genius, ImportKey, Trademo, Datamyne, Volza, Tradesparq and ten more platforms"><span class="pl" style="--c:#004E66"><img src="platform-logos/importyeti-mark.png" alt="" width="180" height="180"><b>ImportYeti</b></span><span class="pl" style="--c:#D6002A"><b>Panjiva</b></span><span class="pl" style="--c:#0A7EF1"><img class="wide" src="platform-logos/importgenius.svg" alt="" width="400" height="78"></span><span class="pl" style="--c:#414FF6"><b>ImportKey</b></span><span class="pl" style="--c:#5A1CE2"><img src="platform-logos/trademo-mark.svg" alt="" width="27" height="25"><b>Trademo</b></span><span class="pl" style="--c:#00AAFF"><img class="wide" src="platform-logos/datamyne.png" alt="" width="300" height="83"></span><span class="pl" style="--c:#0073F2"><b>Volza</b></span><span class="pl" style="--c:#D71518"><b>Tradesparq</b></span><span class="more">and ten more platforms</span></div><figcaption>A few of the platforms that publish U.S. import records. None of them tells a company when someone looks it up.</figcaption></figure>
     <h2 id="s2">What the page shows</h2>
     <p><em class="hl">Four supplier names, with cities.</em> The product descriptions the factory wrote on the bill of lading, which is how you learn that the "premium cookware" is actually tri-ply stainless from one mill and non-stick aluminum from another. Container counts by month, which is <em class="hl">a restock calendar</em>. The port, the carrier, and the arrival dates.</p>
     <p>None of that is a leak. It is how ocean shipping works in the United States: <em class="hl key">the record is public by default</em>, and the platforms republish it for free.</p>
@@ -421,7 +428,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       <div><h3>Resources</h3><ul><li><a href="CDL-testimonials-demo-r4.html">Stories</a></li><li><a href="CDL-blog-demo-r4.html">Blog</a></li><li><a href="CDL-faq-demo-r4.html">FAQ</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="CDL-check-demo-r4.html#contact">Contact</a></li><li><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li><li><a href="#">Log in</a></li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Customs Data Lock LLC</span><span>Privacy practiced on this site: no chat widgets, no tracking pixels, no cookie banners to dismiss.</span></div>
+    <div class="legal"><span>© 2026 Customs Data Lock LLC <a href="CDL-privacy-r4.html">Privacy Policy</a> <a href="CDL-accessibility-r4.html">Accessibility</a></span><span>Privacy practiced on this site: no chat widgets, no tracking pixels, no cookie banners to dismiss.</span></div>
   </div>
 </footer>
 
@@ -483,7 +490,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   })();
 
   const bar = document.getElementById('topbar');
-  onScroll(() => { const band = document.querySelector('.band'); bar.classList.toggle('over', !!band && scrollY < 24 && !qs.has('scrolled')); bar.classList.toggle('stuck', scrollY > 4 || qs.has('scrolled')); });
+  onScroll(() => { const band = document.querySelector('.band'); const top = !!band && scrollY < 24 && !qs.has('scrolled'); const light = !!band && band.classList.contains('light'); bar.classList.toggle('over', top && !light); bar.classList.toggle('over-light', top && light); bar.classList.toggle('stuck', scrollY > 4 || qs.has('scrolled')); });
   // resources dropdown: hover opens on desktop, click toggles, Escape and outside click close
   (function(){
     const dd = document.getElementById('navDd'); if (!dd) return; const btn = dd.querySelector('.nav-dd-btn'); let t;

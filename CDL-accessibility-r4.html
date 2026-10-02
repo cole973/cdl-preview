@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Customs Data Lock · Questions, answered in the first sentence</title>
+<title>Customs Data Lock · Accessibility</title>
+<meta name="description" content="See what ImportYeti, Panjiva, Import Genius and 15 more public platforms show about your company. Within a week, no obligation.">
 <script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,8 @@
 @font-face { font-family: "Geist Fallback"; src: local("Arial"); size-adjust: 108.64%; ascent-override: 92.5%; descent-override: 27.15%; line-gap-override: 0%; }
 @font-face { font-family: "Geist Mono Fallback"; src: local("Courier New"); size-adjust: 99.98%; ascent-override: 100.52%; descent-override: 29.5%; line-gap-override: 0%; }
 
-/* CDL FAQ, round 4 (Sana baseline), 2026-09-09. Same system as CDL-home-demo-r4.html. */
+
+/* Shared r4 system (Sana baseline). Source: CDL-home-demo-r4.html */
 :root {
   --indigo: #1D395B; --gray-blue: #4878A0; --coral: #F04D4D; --light-gray-blue: #AEBBD0; --white: #fff;
   --ground: #F4F4F2; --card: #FFFFFF; --card-2: #ECECE9; --deep: #152C49;
@@ -32,7 +34,7 @@ body { font-family: var(--font-sans); color: var(--text); background: var(--grou
 h1, h2, h3 { color: var(--text); font-weight: 600; letter-spacing: -0.03em; }
 a { color: inherit; }
 img { max-width: 100%; display: block; }
-button, input { font: inherit; }
+button, input, textarea, select { font: inherit; }
 :focus-visible { outline: 2px solid var(--gray-blue); outline-offset: 3px; border-radius: 6px; }
 .skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--indigo); color: #fff; padding: 10px 16px; border-radius: 6px; }
 .skip:focus { left: 16px; top: 16px; }
@@ -103,44 +105,6 @@ button, input { font: inherit; }
   .topbar.open .nav-links a { padding: 12px 8px; }
 }
 
-/* hero */
-.hero { padding: 72px 0 56px; text-align: center; }
-.hero h1 { font-size: 72px; line-height: 76px; letter-spacing: -0.045em; font-weight: 600; max-width: 900px; margin: 0 auto; }
-.hero .sub { font-size: 20px; line-height: 30px; color: var(--muted); max-width: 560px; margin: 20px auto 0; }
-.jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 30px; }
-.jump a { text-decoration: none; }
-@media (max-width: 960px) { .hero h1 { font-size: 44px; line-height: 48px; } }
-
-/* layout */
-.faq-wrap { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 64px; align-items: start; padding-bottom: 40px; }
-.side { position: sticky; top: 92px; }
-.side h2 { font-size: 26px; line-height: 32px; letter-spacing: -0.03em; }
-.side p { color: var(--muted); font-size: 15px; line-height: 23px; margin-top: 10px; }
-.side .pill { margin-top: 18px; }
-.side .cats { list-style: none; margin-top: 28px; border-top: 1px solid var(--line); }
-.side .cats a { display: block; padding: 11px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-size: 15px; color: var(--muted); }
-.side .cats a:hover, .side .cats a.on { color: var(--text); font-weight: 500; }
-.group { margin-bottom: 56px; scroll-margin-top: 92px; }
-.group h2 { font-size: 15px; font-weight: 500; color: var(--coral); margin-bottom: 8px; }
-.group details { border-top: 1px solid var(--line); position: relative; }
-.group details:last-child { border-bottom: 1px solid var(--line); }
-.group details::before { content: ""; position: absolute; left: 0; top: -1px; width: 0; height: 2px; background: var(--coral); transition: width .3s var(--ease); }
-.group details[open]::before { width: 100%; }
-.group summary { list-style: none; cursor: pointer; padding: 20px 0; font-size: 20px; line-height: 28px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; gap: 24px; letter-spacing: -0.015em; }
-.group summary::-webkit-details-marker { display: none; }
-.group summary::after { content: "+"; color: var(--muted-2); font-size: 24px; font-weight: 400; flex: none; }
-.group details[open] summary::after { content: "–"; }
-.group .a { color: var(--muted); font-size: 17px; line-height: 27px; padding: 0 0 24px; max-width: 680px; }
-.group .a b { color: var(--text); font-weight: 500; }
-@media (max-width: 960px) { .faq-wrap { grid-template-columns: 1fr; gap: 32px; } .side { position: static; } .side .cats { display: none; } .group summary { font-size: 18px; line-height: 26px; } }
-
-/* still card */
-.still { max-width: 860px; margin: 24px auto 0; background: var(--indigo); color: var(--white); border-radius: var(--r-card); padding: 34px 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-.still h3 { color: var(--white); font-size: 24px; line-height: 30px; letter-spacing: -0.025em; }
-.still p { color: var(--text-data); font-size: 15px; margin-top: 4px; }
-.still .pill-light { border-color: transparent; }
-@media (max-width: 640px) { .still { padding: 24px 20px; } }
-
 .closing { padding: 100px 0 110px; text-align: center; }
 .closing h2 { font-size: 56px; line-height: 60px; letter-spacing: -0.04em; max-width: 760px; margin: 0 auto; }
 .closing p { color: var(--muted); font-size: 18px; line-height: 28px; max-width: 520px; margin: 18px auto 30px; }
@@ -157,6 +121,86 @@ button, input { font: inherit; }
 .foot .legal a { color: var(--muted); margin-left: 18px; text-decoration: underline; text-decoration-color: rgba(91,102,117,.35); text-underline-offset: 3px; } .foot .legal a:hover { color: var(--text); text-decoration-color: currentColor; }
 @media (max-width: 860px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 body[data-only] main > :not(.keep), body[data-only] > :not(main):not(.keep) { display: none !important; }
+
+
+/* page */
+.hero { padding: 64px 0 24px; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 64px; align-items: start; }
+.hero h1 { font-size: 64px; line-height: 68px; letter-spacing: -0.045em; font-weight: 600; max-width: 620px; }
+.hero .sub { font-size: 19px; line-height: 29px; color: var(--muted); max-width: 520px; margin-top: 18px; }
+.steps { list-style: none; margin-top: 36px; border-top: 1px solid var(--line); max-width: 520px; }
+.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 24px; }
+.steps .n { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .08em; color: var(--muted-2); padding-top: 4px; }
+.steps b { font-weight: 600; display: block; }
+.steps span { color: var(--muted); font-size: 15px; }
+.plan-note { margin-top: 24px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; font-size: 15px; color: var(--muted); max-width: 520px; }
+.plan-note b { color: var(--text); font-weight: 600; }
+.plan-note[hidden] { display: none; }
+
+
+/* the lookup, animated */
+.lookup { position: relative; margin-top: 30px; max-width: 660px; background: var(--white); border-radius: 22px; box-shadow: var(--shadow-card); padding: 22px 22px 20px; overflow: hidden; }
+.lk-search { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px; border: 1.5px solid var(--line); border-radius: var(--r-pill); font-size: 15px; color: var(--text); background: var(--ground); }
+.lk-search svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+.lk-search .caret { width: 1.5px; height: 18px; background: var(--indigo); animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.lk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.pt { position: relative; height: 104px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); display: flex; align-items: center; justify-content: center; padding: 8px; opacity: .45; filter: grayscale(1); transition: opacity .35s var(--ease), filter .35s var(--ease), border-color .35s var(--ease), transform .35s cubic-bezier(.22,1.2,.36,1); }
+.pt img { max-height: 58px; max-width: 88%; object-fit: contain; }
+.pt .wm { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
+.pt.more span { width: 34px; height: 8px; border-radius: 3px; background: var(--line); }
+.pt .ok { position: absolute; right: -5px; top: -5px; width: 18px; height: 18px; border-radius: 50%; background: var(--confirmed); color: var(--white); display: inline-flex; align-items: center; justify-content: center; transform: scale(0); transition: transform .3s cubic-bezier(.22,1.2,.36,1); }
+.pt .ok svg { width: 10px; height: 10px; }
+.pt.on { opacity: 1; filter: none; border-color: rgba(47,133,90,.4); }
+.pt.on .ok { transform: scale(1); }
+.pt.now { transform: translateY(-2px); border-color: var(--indigo); opacity: 1; filter: none; }
+.lk-count { margin-top: 14px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.lk-steps { list-style: none; margin-top: 22px; max-width: 660px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.lk-steps li { border-top: 2px solid var(--line); padding-top: 10px; transition: border-color .4s var(--ease); }
+.lk-steps b { display: block; font-size: 14px; font-weight: 600; color: var(--muted-2); transition: color .4s var(--ease); }
+.lk-steps span { display: block; font-size: 12.5px; line-height: 18px; color: var(--muted); margin-top: 4px; opacity: .6; transition: opacity .4s var(--ease); }
+.lk-steps li.on { border-top-color: var(--coral); } .lk-steps li.on b { color: var(--text); } .lk-steps li.on span { opacity: 1; }
+@media (max-width: 960px) { .lk-grid { grid-template-columns: repeat(4, 1fr); } .pt { height: 64px; }  .lk-steps { grid-template-columns: 1fr; gap: 10px; } }
+
+/* form card */
+.fcard { background: var(--white); border-radius: var(--r-card); box-shadow: var(--shadow-card); padding: 36px 36px 30px; position: sticky; top: 92px; }
+.fcard h2 { font-size: 24px; line-height: 30px; letter-spacing: -0.03em; }
+.fcard .lede { color: var(--muted); font-size: 15px; margin-top: 6px; }
+.field { margin-top: 18px; }
+.field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 7px; }
+.field label small { color: var(--muted-2); font-weight: 400; }
+.field select { width: 100%; height: 48px; padding: 0 40px 0 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--ground); font-size: 16px; color: var(--text); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.field select:focus { outline: none; border-color: var(--gray-blue); background-color: var(--white); box-shadow: 0 0 0 4px rgba(72,120,160,.15); }
+.field select[aria-invalid="true"] { border-color: var(--coral); }
+.field[hidden] { display: none; }
+.field input, .field textarea { width: 100%; height: 48px; padding: 0 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--ground); font-size: 16px; color: var(--text); transition: border-color .15s ease, box-shadow .15s ease; }
+.field textarea { height: auto; min-height: 96px; padding: 12px 16px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--gray-blue); background: var(--white); box-shadow: 0 0 0 4px rgba(72,120,160,.15); }
+.field input[aria-invalid="true"] { border-color: var(--coral); }
+.err { display: none; color: var(--coral); font-size: 13.5px; margin-top: 6px; }
+.field.bad .err { display: block; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hp { position: absolute; left: -9999px; }
+.fcard .pill { margin-top: 24px; width: 100%; }
+.fine { margin-top: 14px; font-size: 13px; line-height: 19px; color: var(--muted-2); text-align: center; }
+.done { display: none; text-align: center; padding: 20px 0 10px; }
+.fcard.sent form { display: none; } .fcard.sent .done { display: block; }
+.done .tick { width: 56px; height: 56px; border-radius: 50%; background: rgba(47,133,90,.12); color: var(--confirmed); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.done h2 { font-size: 26px; }
+.done p { color: var(--muted); margin-top: 8px; font-size: 16px; }
+.done .pill { width: auto; margin-top: 22px; }
+@media (max-width: 960px) { .split { grid-template-columns: 1fr; gap: 36px; } .hero h1 { font-size: 42px; line-height: 46px; } .fcard { position: static; padding: 24px 20px; } .row2 { grid-template-columns: 1fr; } }
+
+/* covers row */
+.covers { padding: 96px 0 40px; }
+.covers h2 { font-size: 40px; line-height: 46px; letter-spacing: -0.035em; text-align: center; }
+.row4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 44px; }
+.row4 .num { font-size: 13px; color: var(--muted-2); font-family: var(--font-mono); letter-spacing: .06em; }
+.row4 h3 { font-size: 20px; line-height: 26px; margin: 10px 0 6px; letter-spacing: -0.02em; }
+.row4 p { color: var(--muted); font-size: 15px; line-height: 23px; }
+@media (max-width: 960px) { .row4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .row4 { grid-template-columns: 1fr; } }
+.privacy { text-align: center; color: var(--muted); font-size: 15px; padding: 48px 0 100px; }
 
 /* skeletons: every async piece shows the shape of what is coming, then fades to the real thing */
 .skel { position: relative; overflow: hidden; background: var(--card-2); border-radius: inherit; }
@@ -187,12 +231,69 @@ img.skel-src.on { opacity: 1; }
 .ring.skel svg { opacity: 0; }
 @media (max-width: 720px) { .skel-wall .skel-col:nth-child(n+2) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .skel::after, .skel-lines i::after, .skel-num::after, .skel-globe::after { animation: none; } }
+
+/* what the check covers: four cards, each with a small real artifact instead of a number */
+.cov-cards { gap: 18px; }
+.cv { background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--c, var(--indigo)); border-radius: 20px; padding: 18px 20px 22px; box-shadow: var(--shadow-card); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.cv:hover { transform: translateY(-3px); box-shadow: var(--shadow-float); }
+.cv h3 { margin-top: 16px; } .cv p { margin-top: 6px; }
+.cv-art { height: 154px; border-radius: 12px; background: var(--ground); padding: 10px 12px; overflow: hidden; position: relative; }
+.names-mini { list-style: none; } .names-mini li { position: relative; font-size: 12.5px; line-height: 17px; padding: 4px 0 4px 20px; border-bottom: 1px solid var(--line); color: var(--text); font-weight: 500; }
+.names-mini li::before { content: ""; position: absolute; left: 0; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--indigo); } .names-mini li::after { content: ""; position: absolute; left: 3.5px; top: 10px; width: 3px; height: 5px; border: solid #fff; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.names-mini li.more { color: var(--muted-2); font-weight: 400; border-bottom: 0; } .names-mini li.more::before { background: var(--light-gray-blue); } .names-mini li.more::after { display: none; }
+.plat-mini { display: flex; flex-wrap: wrap; gap: 8px; } .plg { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 8px; background: var(--white); border: 1px solid var(--line); color: var(--c); font-weight: 600; font-size: 12px; white-space: nowrap; }
+.plg img { height: 16px; width: auto; } .plg img.wide { height: 13px; } .plg.more { color: var(--muted-2); font-weight: 500; }
+.rec-mini { font-size: 10.5px; white-space: nowrap; } .rec-mini .rh, .rec-mini .rr { display: grid; grid-template-columns: 1.25fr .55fr .8fr .85fr; gap: 6px; padding: 5px 0; border-bottom: 1px solid var(--line); align-items: center; } .rec-mini .rr > * { overflow: hidden; text-overflow: ellipsis; }
+.rec-mini .rh span { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-2); } .rec-mini .rr b { font-weight: 600; } .rec-mini .rr span { color: var(--muted); } .rec-mini .rr .mono { font-family: var(--font-mono); font-size: 10.5px; color: var(--gray-blue); } .rec-mini .rr.dim { opacity: .55; border-bottom: 0; }
+.doc-mini { background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--indigo); border-radius: 5px; padding: 6px 9px 7px; height: 100%; box-shadow: 0 8px 20px -14px rgba(20,30,50,.5); }
+.doc-mini .dh { display: flex; justify-content: space-between; align-items: center; padding-bottom: 4px; border-bottom: 1px solid var(--indigo); } .doc-mini .dh img { height: 13px; } .doc-mini .dh span { font-family: var(--font-mono); font-size: 7.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--indigo); }
+.doc-mini .dk { font-family: var(--font-mono); font-size: 6.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); text-align: center; margin-top: 5px; } .doc-mini .dt { font-size: 11px; line-height: 14px; font-weight: 600; text-align: center; color: var(--indigo); margin-top: 1px; }
+.doc-mini i { display: block; height: 3px; border-radius: 2px; background: var(--card-2); margin-top: 5px; } .doc-mini i.w70 { width: 70%; } .doc-mini i.w50 { width: 50%; }
+.doc-mini .dq { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); font-size: 8.5px; color: var(--indigo); font-weight: 600; }
+@media (max-width: 960px) { .cov-cards { grid-template-columns: 1fr 1fr; } }
+.field .opt { font-weight: 400; color: var(--muted-2); font-size: 12px; margin-left: 4px; }
 section[id], [data-anchor] { scroll-margin-top: 76px; }
+.contact { padding: 110px 0 100px; scroll-margin-top: 80px; }
+.contact .split { grid-template-columns: minmax(0, 1fr) 520px; }
+.contact h2 { font-size: 48px; line-height: 54px; letter-spacing: -0.04em; max-width: 520px; }
+.contact .sub { font-size: 18px; line-height: 28px; color: var(--muted); max-width: 480px; margin-top: 16px; }
+.ways { list-style: none; margin-top: 30px; max-width: 480px; border-top: 1px solid var(--line); }
+.ways li { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.ways li span { color: var(--muted); }
+.ways li a { text-decoration: none; font-weight: 500; }
+.ways li a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact .fcard { position: static; }
+.contact .fcard h2 { font-size: 24px; line-height: 30px; }
 /* fluid type: headlines scale with the window instead of jumping at 960px; larger menu text */
 .nav-links a, .nav-login, .nav-dd-btn { font-size: 16px; }
 .nav-right .pill-sm { font-size: 15px; height: 40px; padding: 0 18px; }
-.hero h1 { font-size: clamp(44px, 5.6vw, 88px); line-height: 1.06; }
+.hero h1 { font-size: clamp(42px, 4.9vw, 76px); line-height: 1.06; }
 /* end fluid type */
+
+/* info icons: a short definition for uncommon terms (tools/tips.py) */
+.tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 6px; padding: 0; border: 1.5px solid currentColor; border-radius: 50%; background: none; color: var(--muted-2); font: 600 11px/1 var(--font-sans); letter-spacing: 0; vertical-align: middle; cursor: help; transform: translateY(-1px); }
+.tip:hover, .tip:focus-visible, .tip[aria-expanded="true"] { color: var(--gray-blue); outline: none; }
+.tip .bub { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(calc(-50% + var(--shift, 0px))); width: 290px; max-width: calc(100vw - 24px); padding: 12px 14px; border-radius: 12px; background: var(--deep); color: #fff; font: 400 13.5px/20px var(--font-sans); letter-spacing: 0; text-align: left; text-transform: none; white-space: normal; box-shadow: 0 2px 4px rgba(16,32,56,.1), 0 18px 40px -12px rgba(16,32,56,.45); opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility .15s; z-index: 80; pointer-events: none; }
+.tip .bub b { display: block; font-weight: 600; margin-bottom: 4px; }
+.tip .bub::after { content: ""; position: absolute; top: 100%; left: calc(50% - var(--shift, 0px) - 6px); border: 6px solid transparent; border-top-color: var(--deep); }
+.tip:hover .bub, .tip:focus-visible .bub, .tip[aria-expanded="true"] .bub { opacity: 1; visibility: visible; }
+
+/* legal pages */
+.legal-pg { padding: 72px 0 96px; }
+.legal-pg .doc { max-width: 760px; }
+.legal-pg h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.045em; font-weight: 600; }
+.legal-pg .upd { margin-top: 14px; font-size: 15px; color: var(--muted-2); }
+.legal-pg .lead { margin-top: 22px; font-size: 20px; line-height: 31px; color: var(--muted); }
+.legal-pg h2 { margin-top: 44px; font-size: 26px; line-height: 32px; letter-spacing: -0.025em; }
+.legal-pg p, .legal-pg li { font-size: 17px; line-height: 28px; color: var(--text); }
+.legal-pg p { margin-top: 14px; }
+.legal-pg ul { margin-top: 12px; padding-left: 22px; } .legal-pg li { margin-top: 8px; } .legal-pg li::marker { color: var(--muted-2); }
+.legal-pg a { color: var(--gray-blue); text-decoration: underline; text-underline-offset: 3px; }
+.legal-pg .box { margin-top: 18px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); }
+.legal-pg table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 16px; }
+.legal-pg th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-2); font-weight: 600; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+.legal-pg td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 24px; }
+@media (max-width: 700px) { .legal-pg { padding: 48px 0 72px; } .legal-pg .lead { font-size: 18px; line-height: 28px; } }
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -226,9 +327,8 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 </style>
 </head>
 <body>
-<div class="pskel v-list" id="pskel" aria-hidden="true"><div class="pskel-shell"><div class="pskel-hero"><div class="pskel-lines center"><i class="h w40"></i><i class="w30"></i></div><div class="pskel-rows"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></div>
+<div class="pskel v-split" id="pskel" aria-hidden="true"><div class="pskel-shell"><div class="pskel-hero"><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class="w60"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h w40"></i></div></div><i></i></div></div></div>
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="topbar" id="topbar">
   <div class="shell nav-in">
     <a href="CDL-home-demo-r4.html" aria-label="Customs Data Lock home"><img class="nav-logo" src="logo/official/cdl-logo-dark-for-light-bg.png" alt="Customs Data Lock"></a>
@@ -239,10 +339,10 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       <a href="CDL-home-demo-r4.html#stakes">Why it matters</a>
       <a href="CDL-home-demo-r4.html#how">How it works</a>
       <div class="nav-dd" id="navDd">
-        <button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="navDdMenu" aria-current="page">Resources <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="nav-dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="navDdMenu">Resources <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="nav-dd-menu" id="navDdMenu" role="menu">
           <a role="menuitem" href="CDL-testimonials-demo-r4.html"><b>Testimonials</b><span>What importers say. Names withheld.</span></a>
-          <a role="menuitem" href="CDL-faq-demo-r4.html" aria-current="page"><b>FAQ</b><span>Answered in the first sentence.</span></a>
+          <a role="menuitem" href="CDL-faq-demo-r4.html"><b>FAQ</b><span>Answered in the first sentence.</span></a>
           <a role="menuitem" href="CDL-check-demo-r4.html"><b>Free Exposure Check</b><span>Free report on who reads your record.</span></a>
           <a role="menuitem" href="CDL-blog-demo-r4.html"><b>Blog</b><span>Field notes on public trade data.</span></a>
         </div>
@@ -257,90 +357,38 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 </header>
 
 <main id="main">
+<section class="legal-pg"><div class="shell"><div class="doc">
+<h1>Accessibility</h1>
+<p class="upd">Last updated October 2, 2026</p>
+<p class="lead">We want everyone to be able to use this site, including people who use a screen reader, a keyboard, magnification or other assistive technology, in line with the Americans with Disabilities Act.</p>
 
-<section class="hero" id="hero" data-frame="01-hero">
-  <div class="shell">
-    <h1 class="rise" id="h1"><span class="w">Answered</span> <span class="w">in</span> <span class="w">the</span> <span class="w">first</span> <span class="w">sentence.</span></h1>
-    <p class="sub reveal">If something is missing, ask a person. The contact form reaches us directly.</p>
-    <div class="jump reveal">
-      <a class="pill pill-sm pill-light" href="#how">How it works</a>
-      <a class="pill pill-sm pill-light" href="#privacy">Privacy and confidentiality</a>
-      <a class="pill pill-sm pill-light" href="#coverage">Coverage and quotes</a>
-      <a class="pill pill-sm pill-light" href="#brokers">For brokers and counsel</a>
-    </div>
-  </div>
-</section>
+<h2>Our standard</h2>
+<p>We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA across customsdatalock.com, including our forms and the customer portal.</p>
 
-<section id="questions" data-frame="02-questions">
-  <div class="shell faq-wrap">
-    <aside class="side reveal">
-      <h2>The fastest answer is your own name.</h2>
-      <p>Search your company on ImportYeti. That is what your competitors see. The Free Exposure Check does the same across 18+ platforms and sends you the result.</p>
-      <a class="pill pill-dark" href="CDL-check-demo-r4.html">See your exposure</a>
-      <ul class="cats" id="cats">
-        <li><a href="#how" class="on">How it works</a></li>
-        <li><a href="#privacy">Privacy and confidentiality</a></li>
-        <li><a href="#coverage">Coverage and quotes</a></li>
-        <li><a href="#brokers">For brokers and counsel</a></li>
-      </ul>
-    </aside>
+<h2>How we build the site</h2>
+<ul>
+<li>Pages and forms are built to work with a keyboard, using standard links, buttons and form fields.</li>
+<li>Pages use real headings, labels and landmarks, so screen readers can move through them.</li>
+<li>Images that carry meaning have text descriptions. Decorative images are hidden from screen readers.</li>
+<li>Animations are reduced or turned off when your device asks for reduced motion.</li>
+<li>Layouts adapt to phones, tablets and browser zoom.</li>
+<li>We run automated accessibility checks on our pages as we change them, and fix what they find.</li>
+</ul>
+<p>We do not use accessibility overlay widgets. We fix the site itself.</p>
 
-    <div class="reveal">
-      <div class="group" id="how">
-        <h2>How it works</h2>
-        <details open><summary>What does Customs Data Lock do?</summary><div class="a">We stop your future shipment records from being published on public trade platforms. We put a federal confidentiality protection in place on your behalf, maintain it, and keep watching the platforms to make sure it holds.</div></details>
-        <details><summary>Is my shipment data really public?</summary><div class="a">Yes. U.S. import records are public by default and get republished by platforms like ImportYeti, Panjiva and Import Genius. Anyone can search your company name and see your suppliers, volumes, product details and shipping patterns.</div></details>
-        <details><summary>Does this remove data that is already out there?</summary><div class="a">No, and anyone who tells you otherwise is overpromising. Past records stay where they are. We stop every future shipment from being published, which is what protects your suppliers, volumes and sourcing strategy from here on.</div></details>
-        <details><summary>How fast does protection start?</summary><div class="a">Confirmation arrives in as little as 24 hours, and within a week. Once active, new shipments stop appearing on public platforms.</div></details>
-        <details><summary>Does my broker or freight forwarder need to change anything?</summary><div class="a">No. Nothing about how you ship changes. We work in the background while you keep operating exactly as you do today.</div></details>
-        <details><summary>How do I know it is working?</summary><div class="a">We keep watching 18+ public platforms for anything new under your names. If something appears, we handle it and tell you. You can also check for yourself: search your company name and watch the new records stop.</div></details>
-      </div>
+<h2>Known limitations</h2>
+<ul>
+<li>The animated globe on the homepage is a visual summary of shipping routes. The same information is described in text beside it.</li>
+<li>A few colored buttons do not yet meet the contrast target for small text. We are updating them.</li>
+</ul>
 
-      <div class="group" id="privacy">
-        <h2>Privacy and confidentiality</h2>
-        <details><summary>Is this legal?</summary><div class="a">Completely. Confidentiality is a protection available to importers, and we handle the entire process on your behalf. Nothing about it affects your compliance standing.</div></details>
-        <details><summary>What information gets protected?</summary><div class="a">Your supplier and factory names, shipment quantities and weights, product descriptions, ports, carrier and vessel names, container numbers and arrival dates. In short, everything a competitor would want to read.</div></details>
-        <details><summary>What do you need from me?</summary><div class="a">Your company and entity names exactly as they appear on your customs filings. That is it. We handle everything else and confirm when protection is active.</div></details>
-        <details><summary>What do you do with my information?</summary><div class="a">We use it to put your protection in place and to monitor for your names, and for nothing else. We never share it, never sell it, and our own site runs without chat widgets, tracking pixels or cookie banners.</div></details>
-        <details><summary>Are international shipments covered?</summary><div class="a">We protect U.S. import data only. That is where the public exposure problem lives for American importers.</div></details>
-      </div>
+<h2>Tell us about a problem</h2>
+<p>If something on this site does not work for you, or you need information in another format, email <a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a> with "Accessibility" in the subject line. Tell us the page and what happened. A person will reply within two business days, and we will get you what you need in a format that works for you while we fix the issue.</p>
 
-      <div class="group" id="coverage">
-        <h2>Coverage and quotes</h2>
-        <details><summary>Why is there no price list?</summary><div class="a">Because coverage is scoped to your legal entities, and no two importers have the same set. You are only ever covered for, and billed for, the entities you actually have. <b>Most quotes come back within a week.</b></div></details>
-        <details><summary>What counts as an entity?</summary><div class="a">Every legal name your shipments arrive under. If you import under one company name, that is one entity. If you use several LLCs, brands or DBAs on customs filings, each one is an entity and each one is protected.</div></details>
-        <details><summary>What about misspellings and name variations?</summary><div class="a">Always covered, at no extra cost, on every plan. A forwarder's misspelling is still your record, so capping variations would leave exactly those records exposed.</div></details>
-        <details><summary>Can I add entities later?</summary><div class="a">Yes. Adding an entity moves you to the plan that fits, and renewal dates line up so nothing lapses in between. A new brand or LLC never has to ship exposed.</div></details>
-        <details><summary>What happens at renewal?</summary><div class="a">Protection renews automatically, so coverage never lapses. You are billed once a year and can review or change your plan at any time.</div></details>
-        <details><summary>Can I cancel?</summary><div class="a">Yes, at any time. Keep in mind that once protection ends, your future shipment records begin appearing publicly again, usually within weeks.</div></details>
-      </div>
-
-      <div class="group" id="brokers">
-        <h2>For brokers and counsel</h2>
-        <details><summary>I am a customs broker. Can I bring this to my clients?</summary><div class="a">Yes, and many of our customers arrive that way. Nothing about your filing relationship changes, and we can run the Free Exposure Check on any client you name so the conversation starts with their real record.</div></details>
-        <details><summary>Can our counsel review the protection before we commit?</summary><div class="a">Of course. We will walk your counsel through exactly what is put in place, what it covers, and what it does not, in plain language. Multi-Entity and Enterprise proposals include a vendor pack for procurement and legal review.</div></details>
-        <details><summary>Will you sign an NDA?</summary><div class="a">Yes. Confidentiality is the product, so we are comfortable with yours or ours.</div></details>
-        <details><summary>Do you work with groups that import under many names?</summary><div class="a">Yes. For groups, coverage starts with a scope call and a signed-off entity map across the whole group, then one proposal on an annual agreement.</div></details>
-      </div>
-
-      <div class="still">
-        <div><h3>Still have a question?</h3><p>Ask a person. You hear back from someone at Customs Data Lock, not a sequence.</p></div>
-        <a class="pill pill-light" href="CDL-check-demo-r4.html#contact">Contact us</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="closing" id="cta" data-frame="03-closing">
-  <div class="shell">
-    <h2 class="reveal">See what your competitors can see.</h2>
-    <p class="reveal">Within a week, no obligation. Your quote comes back with the results.</p>
-    <a class="pill pill-lg pill-coral reveal" href="CDL-check-demo-r4.html">Run your Free Exposure Check</a>
-  </div>
-</section>
-
+<h2>Changes</h2>
+<p>We review this statement as the site changes and update the date at the top of this page.</p>
+</div></div></section>
 </main>
-
 <footer class="foot" id="footer" data-frame="04-footer">
   <div class="shell">
     <div class="foot-in">
@@ -353,7 +401,6 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   </div>
 </footer>
 
-<script type="application/ld+json" id="faqld"></script>
 <script>
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -430,16 +477,6 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   tog.addEventListener('click', () => { const open = bar.classList.toggle('open'); tog.setAttribute('aria-expanded', open); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && bar.classList.contains('open')) { bar.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); } });
   document.addEventListener('click', e => { if (bar.classList.contains('open') && !bar.contains(e.target)) { bar.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); } });
-
-  // one open per group
-  document.querySelectorAll('.group').forEach(g => g.querySelectorAll('details').forEach(d => d.addEventListener('toggle', () => { if (d.open) g.querySelectorAll('details').forEach(o => { if (o !== d) o.open = false; }); })));
-  // side nav highlight
-  const groups = [...document.querySelectorAll('.group')]; const links = [...document.querySelectorAll('#cats a')];
-  onScroll(() => { let cur = groups[0]; groups.forEach(g => { if (g.getBoundingClientRect().top < vh() * 0.35) cur = g; }); links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + cur.id)); });
-  // FAQPage JSON-LD from the DOM (feeds AI search)
-  const items = [...document.querySelectorAll('.group details')].map(d => ({ '@type': 'Question', name: d.querySelector('summary').textContent.trim(), acceptedAnswer: { '@type': 'Answer', text: d.querySelector('.a').textContent.trim() } }));
-  document.getElementById('faqld').textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items });
-  if (qs.get('open') === 'all') document.querySelectorAll('.group details').forEach(d => d.open = true);
 })();
 </script>
 <script>
@@ -448,6 +485,34 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 (function(){ const go = () => { const id = decodeURIComponent(location.hash.slice(1)); if (!id) return; const el = document.getElementById(id); if (!el) return; const top = el.getBoundingClientRect().top + scrollY - 76; window.scrollTo({ top: Math.max(0, top), behavior: 'instant' }); };
   if (location.hash) { addEventListener('load', () => { go(); setTimeout(go, 400); setTimeout(go, 1200); if (document.fonts) document.fonts.ready.then(go); }); }
   addEventListener('hashchange', () => setTimeout(go, 50)); })();
+</script>
+<script>
+// thank-you in place: the card keeps its space so nothing on the page moves, but its white box steps aside and a compact
+// box sized to the thank-you appears in the part of the card on screen. The page never scrolls.
+window.cdlDone = function (card) {
+  const r = card.getBoundingClientRect(), h = r.height;
+  card.style.minHeight = h + 'px'; if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+  card.classList.add('sent');
+  Object.assign(card.style, { background: 'transparent', boxShadow: 'none' });
+  const d = card.querySelector('.done'); if (!d) return;
+  Object.assign(d.style, { position: 'absolute', left: '0', right: '0', padding: '36px 36px 30px', background: 'var(--white)', borderRadius: 'var(--r-card)', boxShadow: 'var(--shadow-card)' });
+  const dh = d.offsetHeight, visTop = Math.max(r.top, 0), visBot = Math.min(r.bottom, innerHeight);
+  d.style.top = Math.max(0, Math.min(h - dh, (visTop + visBot) / 2 - r.top - dh / 2)) + 'px';
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'ease-out' });
+};
+</script>
+<script>
+// info icons: hover or focus shows the definition; a tap toggles it (phones); Escape or a tap elsewhere closes it
+(function () {
+  const tips = [...document.querySelectorAll('.tip')]; if (!tips.length) return;
+  const place = t => { const b = t.querySelector('.bub'); b.style.setProperty('--shift', '0px'); const r = b.getBoundingClientRect(); let s = 0; if (r.left < 12) s = 12 - r.left; else if (r.right > innerWidth - 12) s = innerWidth - 12 - r.right; b.style.setProperty('--shift', s + 'px'); };
+  const closeAll = except => tips.forEach(t => { if (t !== except) t.setAttribute('aria-expanded', 'false'); });
+  tips.forEach(t => {
+    t.addEventListener('mouseenter', () => place(t)); t.addEventListener('focus', () => place(t));
+    t.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); const open = t.getAttribute('aria-expanded') !== 'true'; closeAll(t); t.setAttribute('aria-expanded', open); if (open) place(t); });
+  });
+  document.addEventListener('click', () => closeAll()); addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
 </script>
 </body>
 </html>

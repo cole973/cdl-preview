@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Customs Data Lock · Free Exposure Check</title>
+<title>Customs Data Lock · Book a call</title>
 <meta name="description" content="See what ImportYeti, Panjiva, Import Genius and 15 more public platforms show about your company. Within a week, no obligation.">
 <script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -277,6 +277,102 @@ section[id], [data-anchor] { scroll-margin-top: 76px; }
 .tip .bub b { display: block; font-weight: 600; margin-bottom: 4px; }
 .tip .bub::after { content: ""; position: absolute; top: 100%; left: calc(50% - var(--shift, 0px) - 6px); border: 6px solid transparent; border-top-color: var(--deep); }
 .tip:hover .bub, .tip:focus-visible .bub, .tip[aria-expanded="true"] .bub { opacity: 1; visibility: visible; }
+
+/* nav over a photo (from the pricing page) */
+.nav-logo { height: 38px; width: auto; display: block; transition: height .25s var(--ease); }
+.topbar.over a[aria-label="Customs Data Lock home"]:hover, .topbar.over a[aria-label="Customs Data Lock home"]:focus-visible { background: rgba(255,255,255,.14); }
+.topbar.over .nav-dd-menu { background: rgba(21,44,73,.38); border-color: rgba(255,255,255,.22); box-shadow: 0 24px 48px -16px rgba(0,0,0,.45); }
+.topbar.over .nav-links .nav-dd-menu a { color: var(--white); }
+.topbar.over .nav-links .nav-dd-menu a:hover, .topbar.over .nav-links .nav-dd-menu a:focus-visible { background: rgba(255,255,255,.14); }
+.topbar.over .nav-dd-menu span { color: rgba(255,255,255,.7); }
+.topbar.over .nav-dd-menu a[aria-current="page"] b { color: var(--coral); }
+.topbar.over .nav-dd-btn { color: var(--white); }
+.topbar.over .nav-dd-btn:hover, .topbar.over .nav-dd-btn[aria-expanded="true"] { background: rgba(255,255,255,.14); }
+  .topbar.over.open .nav-dd-btn, .topbar.over.open .nav-dd-menu a { color: var(--white); }
+  .nav-logo { height: 32px; }
+.topbar.over { background: transparent; backdrop-filter: none; border-bottom-color: transparent; }
+.topbar.over .nav-links a, .topbar.over .nav-login { color: var(--white); }
+.topbar.over .nav-links a[aria-current="page"], .topbar.over .nav-dd-btn[aria-current="page"] { background: rgba(255,255,255,.16); }
+.topbar.over .nav-links a:hover, .topbar.over .nav-login:hover { background: rgba(255,255,255,.14); }
+.topbar.over .nav-toggle { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.35); color: var(--white); }
+.topbar .nav-logo.rev { display: none; }
+.topbar.over .nav-logo { height: 50px; }
+.topbar.over .nav-logo.rev { display: block; } .topbar.over .nav-logo.std { display: none; }
+.topbar.over.open { background: rgba(21,44,73,.96); }
+.topbar.over .nav-dd-btn { color: var(--white); }
+.topbar.over .nav-dd-btn:hover, .topbar.over .nav-dd-btn[aria-expanded="true"] { background: rgba(255,255,255,.14); }
+.topbar.over .nav-dd-menu { background: rgba(21,44,73,.38); border-color: rgba(255,255,255,.22); box-shadow: 0 24px 48px -16px rgba(0,0,0,.45); }
+.topbar.over .nav-links .nav-dd-menu a { color: var(--white); }
+.topbar.over .nav-links .nav-dd-menu a:hover, .topbar.over .nav-links .nav-dd-menu a:focus-visible { background: rgba(255,255,255,.14); }
+.topbar.over .nav-dd-menu span { color: rgba(255,255,255,.7); }
+.topbar.over .nav-dd-menu a[aria-current="page"] b { color: var(--coral); }
+.band { position: relative; margin-top: -68px; background: var(--deep); overflow: hidden; }
+.band img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
+.band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(29,57,91,.55) 0%, rgba(29,57,91,.7) 55%, rgba(21,44,73,.96) 100%); }
+.band .bin { position: relative; z-index: 2; }
+@media (max-width: 960px) { .band { margin-top: -64px; } }
+.band .skel-img, .bleed .skel-img, .qcard .skel-img, .pcard-media .skel-img, .stakes-photo .skel-img { background: var(--deep); }
+.band .skel-img::after, .bleed .skel-img::after, .qcard .skel-img::after, .pcard-media .skel-img::after, .stakes-photo .skel-img::after { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.12) 50%, transparent 100%); }
+
+/* plan request pages (quote / proposal): a photo band behind the heading, the form card rising into it */
+.fband { height: 470px; }
+.fband img.bg { filter: saturate(.9); }
+.fband::after { background: linear-gradient(90deg, rgba(21,44,73,.82) 0%, rgba(21,44,73,.55) 45%, rgba(21,44,73,.2) 100%), linear-gradient(180deg, rgba(21,44,73,.35) 0%, rgba(21,44,73,0) 30%, rgba(21,44,73,.25) 100%); }
+.fband .bin { padding: 158px 0 0; }
+.fband h1 { color: var(--white); max-width: calc(100% - 584px); font-size: clamp(44px, 6vw, 96px); line-height: 1.05; letter-spacing: -0.045em; font-weight: 600; text-align: left; margin: 0; }
+.fband .sub { color: rgba(255,255,255,.9); max-width: 600px; margin-top: 20px; font-size: 21px; line-height: 32px; text-wrap: pretty; }
+.flow .hero { padding-top: 32px; }
+.flow .fcard { margin-top: -290px; z-index: 3; }
+@media (max-width: 960px) { .fband { height: auto; } .fband .bin { padding: 112px 0 56px; } .fband h1 { max-width: none; } .fband .sub { font-size: 18px; line-height: 28px; } .next b { font-size: 17px; } .next span { font-size: 15.5px; } .flow .fcard { margin-top: 8px; } }
+.flow .split { align-items: start; }
+.flow .sub { max-width: 560px; }
+.ans { margin-top: 26px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; max-width: 560px; }
+.ans .ah { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; color: var(--muted); }
+.ans .ah b { color: var(--text); font-weight: 600; font-size: 16px; }
+.ans ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.ans li { font-size: 15px; padding: 6px 14px; border-radius: 999px; background: var(--ground); color: var(--text); }
+.ans[hidden] { display: none; }
+.next { list-style: none; margin-top: 34px; max-width: 600px; display: grid; gap: 0; counter-reset: n; }
+.next li { display: grid; grid-template-columns: 44px 1fr; gap: 2px 18px; padding: 20px 0; border-top: 1px solid var(--line); counter-increment: n; }
+.next li::before { content: counter(n); grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; background: var(--indigo); color: #fff; font-size: 17px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
+.next b { font-size: 19px; line-height: 26px; font-weight: 600; letter-spacing: -0.01em; } .next span { font-size: 16.5px; color: var(--muted); line-height: 25px; }
+.fcard .sect { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); }
+.fcard .sect:first-of-type { margin-top: 20px; }
+.row3 { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, .7fr) minmax(0, .9fr); gap: 12px; }
+.row3 .field { margin-top: 12px; }
+.field .hint { font-size: 12.5px; color: var(--muted-2); margin-top: 6px; line-height: 17px; }
+.ents .ent { display: flex; gap: 8px; align-items: center; margin-top: 10px; } .ents .ent:first-child { margin-top: 0; }
+.ents .ent input { flex: 1; }
+.ents .ent .rm { flex: none; width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--white); color: var(--muted-2); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.ents .ent .rm:hover { color: var(--coral); border-color: rgba(240,77,77,.35); }
+.addent { margin-top: 10px; background: none; border: 0; padding: 4px 0; color: var(--gray-blue); font-weight: 500; font-size: 14px; cursor: pointer; }
+.addent[hidden] { display: none; }
+.form-error { color: var(--coral); font-size: 14px; margin-top: 12px; }
+@media (max-width: 560px) { .row3 { grid-template-columns: 1fr 1fr; } .row3 .field:first-child { grid-column: 1 / -1; } }
+
+/* book-a-call calendar */
+.cal { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.cal .ch { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.cal .ch b { font-size: 15px; font-weight: 600; } .cal .ch span { font-size: 12.5px; color: var(--muted-2); }
+.cal .wk { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.cal .wkh { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); text-align: center; }
+.cal .d { height: 52px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; cursor: pointer; font: inherit; color: var(--text); }
+.cal .d small { font-size: 11px; color: var(--muted-2); } .cal .d b { font-size: 17px; font-weight: 600; line-height: 20px; }
+.cal .d:hover:not(:disabled) { border-color: var(--gray-blue); }
+.cal .d:disabled { background: transparent; border-style: dashed; color: var(--muted-2); opacity: .45; cursor: default; }
+.cal .d.today small { color: var(--coral); }
+.cal .d[aria-pressed="true"] { background: var(--indigo); border-color: var(--indigo); color: #fff; } .cal .d[aria-pressed="true"] small { color: rgba(255,255,255,.75); }
+.cal .gap { visibility: hidden; }
+.times { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
+.times button { height: 40px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font: inherit; font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; }
+.times button:hover { border-color: var(--gray-blue); }
+.times button[aria-pressed="true"] { background: var(--coral); border-color: var(--coral); color: #fff; }
+.times .none { grid-column: 1 / -1; font-size: 14px; color: var(--muted); padding: 6px 0; }
+.picked { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--ground); font-size: 14px; color: var(--muted); }
+.picked b { color: var(--text); font-weight: 600; }
+.cal.bad .ch b { color: var(--coral); } .cal.bad #calErr { display: block; }
+.field textarea { height: 96px; padding: 12px 16px; resize: vertical; }
+@media (max-width: 460px) { .times { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cal .d { height: 48px; } }
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -312,9 +408,9 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 <body>
 <div class="pskel v-split" id="pskel" aria-hidden="true"><div class="pskel-shell"><div class="pskel-hero"><div class="pskel-card"><div class="pskel-lines"><i class="w40"></i><i class="h w80"></i><i class="w60"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h w40"></i></div></div><i></i></div></div></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar" id="topbar">
+<header class="topbar over" id="topbar">
   <div class="shell nav-in">
-    <a href="CDL-home-demo-r4.html" aria-label="Customs Data Lock home"><img class="nav-logo" src="logo/official/cdl-logo-dark-for-light-bg.png" alt="Customs Data Lock"></a>
+    <a href="CDL-home-demo-r4.html" aria-label="Customs Data Lock home"><img class="nav-logo std" src="logo/official/cdl-logo-dark-for-light-bg.png" alt="Customs Data Lock"><img class="nav-logo rev" src="logo/official/cdl-logo-light-for-dark-bg.png" alt="" aria-hidden="true"></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -330,7 +426,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
           <a role="menuitem" href="CDL-blog-demo-r4.html"><b>Blog</b><span>Field notes on public trade data.</span></a>
         </div>
       </div>
-      <a href="CDL-pricing-demo-r4.html">Pricing</a>
+      <a href="CDL-pricing-demo-r4.html" aria-current="page">Pricing</a>
     </nav>
     <div class="nav-right">
       <a class="nav-login" href="CDL-login-demo-r4.html">Log in</a>
@@ -339,106 +435,44 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="flow">
+
+<section class="fband band" data-frame="00-band">
+  <img class="bg" src="photography/web/cdl-06-rail-yard-dusk.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+  <div class="bin"><div class="shell">
+    <h1 class="rise" id="h1"><span class="w">Book</span> <span class="w">a</span> <span class="w">quick</span> <span class="w">call.</span></h1>
+    <p class="sub reveal">Enterprise starts with a short phone call, about 15 minutes, to learn what you need. No video, no slides. Pick a time that suits you, every time is Eastern.</p>
+  </div></div>
+</section>
 
 <section class="hero" id="hero" data-frame="01-hero">
   <div class="shell split">
     <div>
-      <h1 class="rise" id="h1"><span class="w">See</span> <span class="w">what's</span> <span class="w">public</span> <span class="w">about</span> <span class="w">your</span> <span class="w">company.</span></h1>
-      <p class="sub reveal">We check ImportYeti, Panjiva, Import Genius and 15 more platforms for every name you ship under, and send you what they show.</p>
-      <div class="lookup reveal" id="lookup" aria-label="How the check works, animated">
-        <div class="lk-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="typed" id="lkTyped"></span><span class="caret" id="lkCaret"></span></div>
-        <div class="lk-grid" id="lkGrid"><div class="pt" title="ImportYeti"><img src="platform-logos/importyeti-mark.png" alt="ImportYeti"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Panjiva"><img src="platform-logos/panjiva.svg" alt="Panjiva"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Import Genius"><img src="platform-logos/importgenius.svg" alt="Import Genius"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="ImportKey"><img src="platform-logos/importkey.png" alt="ImportKey"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Trademo"><img src="platform-logos/trademo-mark.svg" alt="Trademo"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Datamyne"><img src="platform-logos/datamyne.png" alt="Datamyne"><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Volza"><span class="wm" style="color:#1A3C6E">Volza</span><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div><div class="pt" title="Tradesparq"><span class="wm" style="color:#0B7A75">Tradesparq</span><i class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i></div></div>
-        <div class="lk-count" id="lkCount">Checking 18 platforms</div>
-      </div>
-      <ol class="lk-steps" id="lkSteps">
-        <li data-s="0"><b>Tell us who you are</b><span>Company name and a work email. Other names help, but we will find them either way.</span></li>
-        <li data-s="1"><b>We look you up</b><span>A person checks every platform, not a script. within a week.</span></li>
-      </ol>
-      <div class="plan-note reveal" id="planNote" hidden><b id="planName"></b> <span id="planLine"></span></div>
+      <div class="ans reveal" id="ans" hidden><div class="ah"><b>Your answers</b><a class="tlink" id="ansChange" href="CDL-pricing-demo-r4.html#funnel">Change</a></div><ul id="ansList"></ul></div>
+      <ol class="next reveal"><li><b>Pick a time</b><span>Any open slot in the next two weeks. Every time is Eastern.</span></li><li><b>We call you</b><span>A 15-minute phone call to learn your entities, your volume and what you need.</span></li><li><b>Your proposal follows</b><span>A signed-off entity map, then the proposal and vendor pack.</span></li></ol>
     </div>
 
     <div class="fcard reveal" id="fcard">
-      <form id="checkForm" novalidate>
-        <h2>Free Exposure Check</h2>
-        <p class="lede">Within a week. No obligation.</p>
-        <div class="field" id="f-company"><label for="company">Company legal name<button type="button" class="tip" aria-label="What is this: Company legal name" aria-expanded="false" aria-describedby="tip-legal">i<span class="bub" role="tooltip" id="tip-legal"><b>Company legal name</b>The registered name of your company, the one on your formation papers and tax filings, like Your Company LLC. Brands and DBAs are separate.</span></button></label><input id="company" name="company" type="text" autocomplete="organization" required><div class="err">We need the name your shipments arrive under.</div></div>
-        <div class="row2">
-          <div class="field" id="f-name"><label for="name">First name</label><input id="name" name="name" type="text" autocomplete="given-name" required><div class="err">Just a first name is fine.</div></div>
-          <div class="field" id="f-title"><label for="title">Job title <span class="opt">optional</span></label><input id="title" name="title" type="text" autocomplete="organization-title" placeholder="Owner, CFO, Supply chain"><div class="err">Your role helps us write the right report.</div></div>
-        </div>
-        <div class="field" id="f-email"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required inputmode="email"><div class="err">That does not look like an email.</div></div>
-        <div class="field" id="f-reason"><label for="reason">Why do you want to see this?</label><select id="reason" name="reason" required>
-          <option value="">Select one</option>
-          <option value="competitor">A competitor seems to know our suppliers or pricing</option>
-          <option value="launch">We are launching a new product</option>
-          <option value="negotiation">A supplier or buyer negotiation is coming up</option>
-          <option value="fraud">We had a suspicious invoice or payment request</option>
-          <option value="lapsed">We had protection before and think it lapsed</option>
-          <option value="broker">I am a broker or counsel checking for a client</option>
-          <option value="curious">I want to know what is public about us</option>
-          <option value="other">Other</option>
-        </select><div class="err">Pick the closest one, or Other.</div></div>
-        <div class="field" id="f-other" hidden><label for="other">Tell us in a sentence</label><input id="other" name="reason_other" type="text"><div class="err">A few words is enough.</div></div>
-        <div class="field"><label for="names">Other names you ship under<button type="button" class="tip" aria-label="What is this: Name variants" aria-expanded="false" aria-describedby="tip-variants">i<span class="bub" role="tooltip" id="tip-variants"><b>Name variants</b>The different ways your company's name appears on vessel manifests: abbreviations, old names, DBAs and misspellings your suppliers or forwarders type. Each one can show up as its own listing on the public platforms.</span></button> <small>optional</small></label><textarea id="names" name="names" placeholder="DBAs, brands, subsidiaries, or how a forwarder might spell you"></textarea></div>
+      <form id="reqForm" novalidate>
+        <h2>Book a call</h2>
+        <p class="lede">Enterprise plan · six or more entities</p>
+        <div class="field" id="f-company"><label for="company">Company legal name<button type="button" class="tip" aria-label="What is this: Company legal name" aria-expanded="false" aria-describedby="tip-legal">i<span class="bub" role="tooltip" id="tip-legal"><b>Company legal name</b>The registered name of your company, the one on your formation papers and tax filings, like Your Company LLC. Brands and DBAs are separate.</span></button></label><input id="company" name="company" type="text" autocomplete="organization" placeholder="The parent company" required><div class="err">We need the company name.</div></div><div class="row2"><div class="field" id="f-name"><label for="name">First name</label><input id="name" name="name" type="text" autocomplete="given-name" required><div class="err">Just a first name is fine.</div></div><div class="field" id="f-title"><label for="title">Job title <span class="opt">optional</span></label><input id="title" name="title" type="text" autocomplete="organization-title" placeholder="Owner, CFO, Supply chain"></div></div><div class="field" id="f-email"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><div class="err">That does not look like an email.</div></div><div class="field" id="f-phone"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-0100" inputmode="tel" required><div class="hint">The number we will call. A direct line is best.</div><div class="err">A number we can call, with area code.</div></div><div class="cal" id="cal" aria-label="Pick a time for your call">
+          <div class="ch"><b>Pick a time</b><span>All times Eastern (ET) · 15-minute phone call</span></div>
+          <div class="wkh"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div>
+          <div id="calWeeks"></div>
+          <div class="times" id="calTimes"></div>
+          <div class="picked" id="calPicked" hidden></div>
+          <div class="err" id="calErr">Pick a day and a time.</div>
+        </div><div class="field" id="f-note"><label for="note">Anything we should know before the call <span class="opt">optional</span></label><textarea id="note" name="note" placeholder="How many entities, a deadline, a procurement review"></textarea></div>
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <input type="hidden" name="plan" id="planField">
-        <button class="pill pill-lg pill-dark" type="submit">Get my exposure report</button>
+        <button class="pill pill-lg pill-dark" type="submit">Book my call</button>
         <p class="fine">We never share your information. You hear from a person, not a sequence.</p>
       </form>
       <div class="done" aria-live="polite">
         <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-        <h2>Thanks, <span id="doneName">there</span>.</h2>
-        <p>Your report for <b id="doneCompany"></b> is on its way. Expect it within a week, with your quote.</p>
+        <h2>Thank you.</h2>
+        <p>We will call you at <b id="donePhone"></b> on <b id="doneWhen"></b>.</p>
         <a class="pill pill-light" href="CDL-home-demo-r4.html#stakes">Meanwhile, see who reads your record</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="covers" id="covers" data-frame="02-covers">
-  <div class="shell">
-    <h2 class="reveal">What the check covers.</h2>
-    <div class="row4 cov-cards">
-      <div class="reveal cv" style="--c:#1D395B"><div class="cv-art"><ul class="names-mini"><li>Your Company LLC</li><li>YOUR COMPANY</li><li>Your Co. LLC</li><li class="more">+ 7 more spellings</li></ul></div><h3>Every name</h3><p>Your legal entities, brands, DBAs, and the misspellings a forwarder might use.</p></div>
-      <div class="reveal cv" style="--c:#4878A0"><div class="cv-art"><div class="plat-mini"><span class="plg" style="--c:#004E66"><img src="platform-logos/importyeti-mark.png" alt=""><b>ImportYeti</b></span><span class="plg" style="--c:#D6002A"><img src="platform-logos/panjiva.svg" alt=""><b>Panjiva</b></span><span class="plg" style="--c:#0A7EF1"><img class="wide" src="platform-logos/importgenius.svg" alt="Import Genius"></span><span class="plg" style="--c:#414FF6"><img src="platform-logos/importkey.png" alt=""><b>ImportKey</b></span><span class="plg" style="--c:#5A1CE2"><img src="platform-logos/trademo-mark.svg" alt=""><b>Trademo</b></span><span class="plg more"><b>+ 13 more</b></span></div></div><h3>18+ platforms</h3><p>ImportYeti, Panjiva, Import Genius, ImportKey, Trademo and the rest.</p></div>
-      <div class="reveal cv" style="--c:#F04D4D"><div class="cv-art"><div class="rec-mini"><div class="rh"><span>Supplier</span><span>Records</span><span>Code</span><span>Latest</span></div><div class="rr"><b>Yori Printing</b><span>212</span><span class="mono">9504.90</span><span>Aug 2026</span></div><div class="rr"><b>Whatz Games</b><span>88</span><span class="mono">9504.90</span><span>Jul 2026</span></div><div class="rr dim"><b>Longshore</b><span>41</span><span class="mono">9504.90</span><span>Jun 2026</span></div></div></div><h3>What they show</h3><p>Suppliers, volumes, product codes, ports and arrival dates, as a competitor sees them.</p></div>
-      <div class="reveal cv" style="--c:#1D395B"><div class="cv-art"><div class="doc-mini"><div class="dh"><img src="logo/official/cdl-logo-dark-for-light-bg.png" alt=""><span>Exposure report</span></div><div class="dk">Prepared for</div><div class="dt">Your company</div><i></i><i class="w70"></i><div class="dq">Quote enclosed</div></div></div><h3>Your plan</h3><p>Scoped to the entities we found, quoted within a week.</p></div>
-    </div>
-    <p class="privacy reveal">Privacy is the product. We never sell, share or keep your information beyond the check.</p>
-  </div>
-</section>
-
-<section class="contact" id="contact" data-frame="02-contact">
-  <div class="shell split">
-    <div>
-      <h2 class="reveal">Ask a person.</h2>
-      <p class="sub reveal">You hear back from someone at Customs Data Lock, not a sequence. Usually within a week.</p>
-      <ul class="ways reveal">
-        <li><span>Email</span><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li>
-        <li><span>Hours</span><div>Monday to Friday, 9 to 5 Eastern</div></li>
-        <li><span>Quotes</span><div>Come with the <a href="CDL-check-demo-r4.html">Free Exposure Check</a>, usually within a week</div></li>
-        <li><span>Brokers, counsel</span><div>Ask for the vendor pack or an NDA. Both are ready.</div></li>
-      </ul>
-    </div>
-    <div class="fcard reveal" id="ccard">
-      <form id="contactForm" novalidate>
-        <h2>Send a message</h2>
-        <p class="lede">A person reads every one.</p>
-        <div class="row2">
-          <div class="field" id="c-name"><label for="cname">Name</label><input id="cname" name="name" type="text" autocomplete="name" required><div class="err">Your name, please.</div></div>
-          <div class="field" id="c-email"><label for="cemail">Email</label><input id="cemail" name="email" type="email" autocomplete="email" inputmode="email" required><div class="err">That does not look like an email.</div></div>
-        </div>
-        <div class="field"><label for="ccompany">Company <small>optional</small></label><input id="ccompany" name="company" type="text" autocomplete="organization"></div>
-        <div class="field" id="c-msg"><label for="cmsg">Message</label><textarea id="cmsg" name="message" required></textarea><div class="err">Tell us a little about what you need.</div></div>
-        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <button class="pill pill-lg pill-dark" type="submit">Send</button>
-        <p class="fine">We never share your information.</p>
-      </form>
-      <div class="done" aria-live="polite">
-        <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-        <h2>Got it.</h2>
-        <p>Thanks, <b id="cdoneName"></b>. Someone will reply to <b id="cdoneEmail"></b>, usually within a week.</p>
       </div>
     </div>
   </div>
@@ -513,7 +547,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   })();
 
   const bar = document.getElementById('topbar');
-  onScroll(() => bar.classList.toggle('stuck', scrollY > 4));
+  onScroll(() => { bar.classList.toggle('over', scrollY < 24); bar.classList.toggle('stuck', scrollY > 4); });
   // resources dropdown: hover opens on desktop, click toggles, Escape and outside click close
   (function(){
     const dd = document.getElementById('navDd'); if (!dd) return; const btn = dd.querySelector('.nav-dd-btn'); let t;
@@ -532,40 +566,6 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   tog.addEventListener('click', () => { const open = bar.classList.toggle('open'); tog.setAttribute('aria-expanded', open); });
   addEventListener('keydown', e => { if (e.key === 'Escape' && bar.classList.contains('open')) { bar.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); } });
   document.addEventListener('click', e => { if (bar.classList.contains('open') && !bar.contains(e.target)) { bar.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); } });
-  const params = new URLSearchParams(location.search);
-  const company = params.get('company'); if (company) document.getElementById('company').value = company;
-  const plan = params.get('plan');
-  const plans = { standard: ['One entity.', 'Your quote comes back with the report, usually within a week.'], multi: ['Several entities, covered as one.', 'Your proposal follows within a week of the report.'], enterprise: ['A scope built around your group.', 'We will reach out to set up a short scope call after the report.'] };
-  if (plan && plans[plan]) { document.getElementById('planName').textContent = plans[plan][0] + '.'; document.getElementById('planLine').textContent = plans[plan][1]; document.getElementById('planNote').hidden = false; document.getElementById('planField').value = plan; }
-  // the lookup: types the company, checks 18 platforms one by one, slides the report in and attaches the quote; loops while in view
-  (function(){
-    const box = document.getElementById('lookup'); if (!box) return;
-    const typed = document.getElementById('lkTyped'), tiles = [...document.querySelectorAll('#lkGrid .pt')], count = document.getElementById('lkCount'), steps = [...document.querySelectorAll('#lkSteps li')];
-    const name = (params.get('company') || '').trim() || 'Your Company LLC';
-    const setStep = s => { steps.forEach((li, i) => li.classList.toggle('on', i === Math.min(s, steps.length - 1))); };
-    let timer = null, running = false;
-    function run() {
-      if (running) return; running = true; tiles.forEach(x => x.classList.remove('on', 'now')); typed.textContent = ''; count.textContent = 'Checking 18 platforms'; setStep(0);
-      let i = 0; const type = () => { if (i <= name.length) { typed.textContent = name.slice(0, i++); timer = setTimeout(type, 45 + Math.random() * 40); } else timer = setTimeout(check, 500); };
-      let k = 0; const check = () => { setStep(1); if (k > 0) tiles[k - 1].classList.remove('now'); if (k < tiles.length) { tiles[k].classList.add('now'); setTimeout(() => tiles[k - 1] && tiles[k - 1].classList.add('on'), 120); count.textContent = Math.min(18, Math.round((k + 1) * 18 / tiles.length)) + ' of 18 checked'; k++; timer = setTimeout(check, 320); } else { tiles[tiles.length - 1].classList.add('on'); count.textContent = '18 of 18 checked · 11 show your records'; timer = setTimeout(report, 500); } };
-      const report = () => { timer = setTimeout(() => { running = false; if (inView(box, 1)) run(); }, 5000); };
-      type();
-    }
-    const st = params.get('stage');
-    if (st !== null || isStatic) { const s = +(st || 2); typed.textContent = name; tiles.forEach((x, i) => x.classList.toggle('on', s >= 1 && (s === 2 || i < 5))); count.textContent = s === 0 ? 'Checking 18 platforms' : s === 1 ? '11 of 18 checked' : '18 of 18 checked · 11 show your records'; setStep(s); return; }
-    onScroll(() => { if (!running && inView(box, .9)) run(); });
-  })();
-
-  const form = document.getElementById('checkForm'), card = document.getElementById('fcard');
-  const reason = document.getElementById('reason'), otherWrap = document.getElementById('f-other');
-  reason.addEventListener('change', () => { otherWrap.hidden = reason.value !== 'other'; if (!otherWrap.hidden) document.getElementById('other').focus(); });
-  const fields = () => ['company', 'name', 'email', 'reason'].concat(reason.value === 'other' ? ['other'] : []);
-  const valid = id => { const el = document.getElementById(id); const v = el.value.trim(); const ok = id === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : id === 'reason' ? v !== '' : v.length > 1; document.getElementById('f-' + id).classList.toggle('bad', !ok); el.setAttribute('aria-invalid', !ok); return ok; };
-  ['company', 'name', 'email', 'reason', 'other'].forEach(id => document.getElementById(id).addEventListener('blur', () => { if (id !== 'other' || reason.value === 'other') valid(id); }));
-  form.addEventListener('submit', e => { e.preventDefault(); if (form.website.value) return; const fs = fields(); const ok = fs.map(valid).every(Boolean); if (!ok) { document.getElementById(fs.find(id => !valid(id))).focus(); return; }
-    document.getElementById('doneName').textContent = document.getElementById('name').value.trim(); document.getElementById('doneCompany').textContent = document.getElementById('company').value.trim(); cdlDone(card); });
-  if (params.get('reason')) { reason.value = params.get('reason'); reason.dispatchEvent(new Event('change')); }
-  if (params.get('state') === 'sent') { document.getElementById('name').value = 'Dana'; document.getElementById('company').value = company || 'Your Company LLC'; document.getElementById('doneName').textContent = 'Dana'; document.getElementById('doneCompany').textContent = company || 'Your Company LLC'; card.classList.add('sent'); }
 })();
 </script>
 <script>
@@ -574,19 +574,6 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 (function(){ const go = () => { const id = decodeURIComponent(location.hash.slice(1)); if (!id) return; const el = document.getElementById(id); if (!el) return; const top = el.getBoundingClientRect().top + scrollY - 76; window.scrollTo({ top: Math.max(0, top), behavior: 'instant' }); };
   if (location.hash) { addEventListener('load', () => { go(); setTimeout(go, 400); setTimeout(go, 1200); if (document.fonts) document.fonts.ready.then(go); }); }
   addEventListener('hashchange', () => setTimeout(go, 50)); })();
-</script>
-<script>
-(function(){
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const form = document.getElementById('contactForm'), card = document.getElementById('ccard'); if (!form) return;
-  const fields = [{ id: 'cname', wrap: 'c-name' }, { id: 'cemail', wrap: 'c-email', email: true }, { id: 'cmsg', wrap: 'c-msg' }];
-  const valid = f => { const el = document.getElementById(f.id); const v = el.value.trim(); const ok = f.email ? emailOk(v) : v.length > 1; document.getElementById(f.wrap).classList.toggle('bad', !ok); el.setAttribute('aria-invalid', !ok); return ok; };
-  fields.forEach(f => document.getElementById(f.id).addEventListener('blur', () => valid(f)));
-  form.addEventListener('submit', e => { e.preventDefault(); if (form.website.value) return; const bad = fields.filter(f => !valid(f)); if (bad.length) { document.getElementById(bad[0].id).focus(); return; }
-    document.getElementById('cdoneName').textContent = document.getElementById('cname').value.trim().split(' ')[0]; document.getElementById('cdoneEmail').textContent = document.getElementById('cemail').value.trim();
-    cdlDone(card); });
-})();
 </script>
 <script>
 // thank-you in place: the card keeps its space so nothing on the page moves, but its white box steps aside and a compact
@@ -614,6 +601,85 @@ window.cdlDone = function (card) {
     t.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); const open = t.getAttribute('aria-expanded') !== 'true'; closeAll(t); t.setAttribute('aria-expanded', open); if (open) place(t); });
   });
   document.addEventListener('click', () => closeAll()); addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+</script>
+<script>
+(function(){
+  // book a call: two weeks of open times, Eastern. The page builds them from the default hours on the static preview;
+  // scripts/sync-site.ts swaps the two marked lines so production reads real availability and books for real.
+  const SEND = (url, body) => new Promise(r => setTimeout(() => r({ ok: true, json: async () => ({ ok: true }) }), 400));
+  const LOAD_SLOTS = () => Promise.resolve(null);
+  const TZ = 'America/New_York', CALL = 15, STEP = 30, DAYS = 14, NOTICE = 120;
+  const HOURS = { 1: [[600, 720], [780, 1020]], 2: [[600, 720], [780, 1020]], 3: [[600, 720], [780, 1020]], 4: [[600, 720], [780, 1020]], 5: [[600, 720], [780, 1020]] };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const p = new URLSearchParams(location.search);
+  const L = { industry: { consumer: 'Consumer goods', food: 'Food and beverage', industrial: 'Industrial', electronics: 'Electronics', other: 'Something else' }, entities: { '1': 'One entity', '2-5': 'Two to five entities', '6+': 'Six or more entities' }, shipments: { lt50: 'Under 50 shipments a year', '50-500': '50 to 500 shipments a year', '500-2000': '500 to 2,000 shipments a year', '2000+': '2,000+ shipments a year' }, names: { none: 'One name', few: 'A few other names', many: 'Many other names' } };
+  const answers = {}; Object.keys(L).forEach(k => { const v = p.get(k); if (v && L[k][v]) answers[k] = v; });
+  const keys = Object.keys(answers); if (keys.length) { document.getElementById('ansList').innerHTML = keys.map(k => `<li>${L[k][answers[k]]}</li>`).join(''); document.getElementById('ans').hidden = false; }
+
+  // Eastern time helpers (mirror src/lib/calls/slots.ts)
+  const parts = (d, o) => Object.fromEntries(new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: TZ }, o)).formatToParts(d).map(x => [x.type, x.value]));
+  const etYmd = d => { const q = parts(d, { year: 'numeric', month: '2-digit', day: '2-digit' }); return `${q.year}-${q.month}-${q.day}`; };
+  const addDays = (ymd, n) => { const [y, m, d] = ymd.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10); };
+  const wd = ymd => new Date(ymd + 'T12:00:00Z').getUTCDay();
+  function etToInstant(ymd, minutes) { const [y, m, d] = ymd.split('-').map(Number); const guess = Date.UTC(y, m - 1, d, 0, minutes);
+    const off = t => { const q = parts(new Date(t), { hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }); return Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour, +q.minute) - t; };
+    let t = guess - off(guess); t = guess - off(t); return new Date(t); }
+  function defaultSlots(now) { const earliest = now.getTime() + NOTICE * 60000, today = etYmd(now), out = [];
+    for (let i = 0; i < DAYS; i++) { const day = addDays(today, i); (HOURS[wd(day)] || []).forEach(([a, b]) => { for (let m = a; m + CALL <= b; m += STEP) { const at = etToInstant(day, m); if (at.getTime() >= earliest) out.push({ start: at.toISOString(), day, minutes: m }); } }); }
+    return out; }
+  const fmtTime = iso => new Intl.DateTimeFormat('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' }).format(new Date(iso));
+  const fmtLong = iso => new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'long', month: 'long', day: 'numeric' }).format(new Date(iso)) + ' at ' + fmtTime(iso) + ' ET';
+
+  const weeksEl = document.getElementById('calWeeks'), timesEl = document.getElementById('calTimes'), pickedEl = document.getElementById('calPicked'), cal = document.getElementById('cal');
+  let slots = [], byDay = {}, day = null, pick = null;
+  function render() {
+    byDay = {}; slots.forEach(s => (byDay[s.day] = byDay[s.day] || []).push(s));
+    const today = etYmd(new Date()); const last = addDays(today, DAYS - 1);
+    // Monday of this week, Eastern
+    let start = today; while (wd(start) !== 1) start = addDays(start, wd(start) === 0 ? 1 : -1);
+    let html = '';
+    for (let w = start; w <= last; w = addDays(w, 7)) {
+      html += '<div class="wk">';
+      for (let i = 0; i < 5; i++) { const d = addDays(w, i); const label = parts(new Date(d + 'T12:00:00Z'), { month: 'short', day: 'numeric' });
+        const open = d >= today && d <= last && byDay[d] && byDay[d].length;
+        html += `<button type="button" class="d${d === today ? ' today' : ''}" data-day="${d}" ${open ? '' : 'disabled'} aria-pressed="${d === day}"><small>${d === today ? 'Today' : label.month}</small><b>${label.day}</b></button>`; }
+      html += '</div>';
+    }
+    weeksEl.innerHTML = html;
+    weeksEl.querySelectorAll('.d:not(:disabled)').forEach(b => b.addEventListener('click', () => { day = b.dataset.day; pick = null; render(); }));
+    if (!slots.length) { timesEl.innerHTML = '<p class="none">No open times in the next two weeks. Email services@customsdatalock.com and we will find one.</p>'; }
+    else if (!day) { timesEl.innerHTML = '<p class="none">Pick a day to see open times.</p>'; }
+    else { timesEl.innerHTML = (byDay[day] || []).map(s => `<button type="button" data-start="${s.start}" aria-pressed="${pick === s.start}">${fmtTime(s.start)}</button>`).join('');
+      timesEl.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { pick = b.dataset.start; cal.classList.remove('bad'); render(); })); }
+    pickedEl.hidden = !pick; if (pick) pickedEl.innerHTML = `Your call: <b>${fmtLong(pick)}</b>`;
+  }
+  function load() { return LOAD_SLOTS().then(s => { slots = s || defaultSlots(new Date()); if (day && !(slots.some(x => x.day === day))) day = null; if (!day && slots.length) day = slots[0].day; render(); }).catch(() => { slots = defaultSlots(new Date()); render(); }); }
+  load();
+
+  const form = document.getElementById('reqForm'), card = document.getElementById('fcard');
+  const company = p.get('company'); if (company) form.company.value = company;
+  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const req = ['company', 'name', 'email', 'phone'];
+  const check = id => { const el = document.getElementById(id); const v = el.value.trim(); const ok = id === 'email' ? emailOk(v) : id === 'phone' ? v.replace(/\D/g, '').length >= 10 : v.length > 1; document.getElementById('f-' + id).classList.toggle('bad', !ok); el.setAttribute('aria-invalid', !ok); return ok; };
+  req.forEach(id => document.getElementById(id).addEventListener('blur', () => check(id)));
+  form.addEventListener('submit', e => {
+    e.preventDefault(); if (form.website.value) return;
+    const bad = req.filter(id => !check(id)); const noPick = !pick; cal.classList.toggle('bad', noPick);
+    if (bad.length) { document.getElementById(bad[0]).focus(); return; }
+    if (noPick) { cal.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); return; }
+    const v = id => document.getElementById(id).value.trim();
+    const body = { kind: 'consultation', plan: 'Enterprise', company: v('company'), name: v('name'), jobTitle: v('title'), email: v('email'), phone: v('phone'), callAt: pick, note: v('note'),
+      answers: { industry: answers.industry || null, entities: answers.entities || null, shipments: answers.shipments || null, names: answers.names || null }, website: form.website.value, source: location.pathname };
+    const btn = form.querySelector('button[type="submit"]'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Booking…';
+    const old = form.querySelector('.form-error'); if (old) old.remove();
+    SEND('/api/pricing', body)
+      .then(async r => { const j = await r.json().catch(() => ({})); if (!r.ok) { const err = new Error(j.error || 'Something went wrong. Please try again.'); err.code = j.code; throw err; }
+        document.getElementById('donePhone').textContent = v('phone'); document.getElementById('doneWhen').textContent = fmtLong(pick); cdlDone(card); })
+      .catch(err => { if (err.code === 'slot_taken') { pick = null; load(); } const m = document.createElement('p'); m.className = 'form-error'; m.setAttribute('role', 'alert'); m.textContent = err.message; btn.insertAdjacentElement('afterend', m); })
+      .finally(() => { btn.disabled = false; btn.textContent = label; });
+  });
+  if (p.get('state') === 'sent') { document.getElementById('donePhone').textContent = '(312) 555-0142'; document.getElementById('doneWhen').textContent = 'Tuesday, October 6 at 10:30 AM ET'; card.classList.add('sent'); }
 })();
 </script>
 </body>

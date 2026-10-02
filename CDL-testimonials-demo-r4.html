@@ -118,6 +118,7 @@ button, input { font: inherit; }
 .foot ul { list-style: none; } .foot li { margin-bottom: 8px; }
 .foot li a { text-decoration: none; color: var(--muted); } .foot li a:hover { color: var(--text); }
 .foot .legal { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 12.5px; color: var(--muted-2); }
+.foot .legal a { color: var(--muted); margin-left: 18px; text-decoration: underline; text-decoration-color: rgba(91,102,117,.35); text-underline-offset: 3px; } .foot .legal a:hover { color: var(--text); text-decoration-color: currentColor; }
 @media (max-width: 860px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 body[data-only] main > :not(.keep), body[data-only] > :not(main):not(.keep) { display: none !important; }
 
@@ -188,6 +189,11 @@ img.skel-src.on { opacity: 1; }
 @media (max-width: 720px) { .skel-wall .skel-col:nth-child(n+2) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .skel::after, .skel-lines i::after, .skel-num::after, .skel-globe::after { animation: none; } }
 section[id], [data-anchor] { scroll-margin-top: 76px; }
+/* fluid type: headlines scale with the window instead of jumping at 960px; larger menu text */
+.nav-links a, .nav-login, .nav-dd-btn { font-size: 16px; }
+.nav-right .pill-sm { font-size: 15px; height: 40px; padding: 0 18px; }
+.hero h1 { font-size: clamp(44px, 5.6vw, 88px); line-height: 1.06; }
+/* end fluid type */
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -299,7 +305,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       <div><h3>Resources</h3><ul><li><a href="CDL-testimonials-demo-r4.html">Stories</a></li><li><a href="CDL-blog-demo-r4.html">Blog</a></li><li><a href="CDL-faq-demo-r4.html">FAQ</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="CDL-check-demo-r4.html#contact">Contact</a></li><li><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li><li><a href="#">Log in</a></li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Customs Data Lock LLC</span><span>Privacy practiced on this site: no chat widgets, no tracking pixels, no cookie banners to dismiss.</span></div>
+    <div class="legal"><span>© 2026 Customs Data Lock LLC <a href="CDL-privacy-r4.html">Privacy Policy</a> <a href="CDL-accessibility-r4.html">Accessibility</a></span><span>Privacy practiced on this site: no chat widgets, no tracking pixels, no cookie banners to dismiss.</span></div>
   </div>
 </footer>
 

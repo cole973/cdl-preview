@@ -513,6 +513,7 @@ main { position: relative; }
 .foot li a { text-decoration: none; color: var(--muted); }
 .foot li a:hover { color: var(--text); }
 .foot .legal { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 12.5px; color: var(--muted-2); }
+.foot .legal a { color: var(--muted); margin-left: 18px; text-decoration: underline; text-decoration-color: rgba(91,102,117,.35); text-underline-offset: 3px; } .foot .legal a:hover { color: var(--text); text-decoration-color: currentColor; }
 @media (max-width: 860px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 
 /* frame helper */
@@ -576,6 +577,18 @@ html.ocean-loud .oc-c .band-edge { stroke: var(--light-gray-blue); stroke-width:
 .oc-d .glow { fill: url(#shimGrad); }
 .oc-d .fine path { fill: none; stroke: var(--line); stroke-width: 1; opacity: .4; }
 section[id], [data-anchor] { scroll-margin-top: 76px; }
+/* fluid type: headlines scale with the window instead of jumping at 960px; larger menu text */
+.nav-links a, .nav-login, .nav-dd-btn { font-size: 16px; }
+.nav-right .pill-sm { font-size: 15px; height: 40px; padding: 0 18px; }
+.hero.full h1, .hero.full .line2 { font-size: clamp(46px, 7.3vw, 120px); line-height: 1.05; }
+.hero.full h1 { max-width: none; }
+/* hero keeps its full photo height; the headline sits a fixed distance under the menu, the search box a little lower */
+.hero.full .bleed { align-items: flex-start; }
+.hero.full .bleed > .hin { padding: 177px 32px 72px; }
+.hero.full .check { margin-top: 64px; }
+@media (max-width: 960px) { .hero.full .bleed > .hin { padding: 179px 16px 48px; } .hero.full .check { margin-top: 48px; } }
+.qcard blockquote { text-wrap: pretty; }
+/* end fluid type */
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -845,11 +858,12 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
 <!-- 04 QUOTE CARD -->
 <section id="quote" data-frame="04-quote" style="padding-bottom: 96px;">
   <div class="shell">
+    <!-- PLACEHOLDER QUOTE: replace with the customer’s own words, approved by them, before launch -->
     <div class="qcard reveal">
       <img src="photography/01-hero/cdl-hero-01-terminal-blue-hour.jpg" alt="" width="1920" height="1084" loading="lazy" decoding="async">
       <div class="in">
-        <blockquote>“Fast, clear, and it simply works. Our new shipments stopped appearing, and they have stayed gone.”</blockquote>
-        <div class="who"><b>Logistics Manager</b>Consumer goods importer. Name withheld.</div>
+        <blockquote>“Our factory told us, almost as a compliment, that two competitors had been asking about us. Since April 2025, not one new shipment has shown up.”</blockquote>
+        <div class="who"><b>Head of Sourcing</b>Private-label apparel importer, two entities. Name withheld.</div>
         <a class="pill pill-ghost" href="CDL-blog-demo-r4.html">Read the stories</a>
       </div>
     </div>
@@ -903,7 +917,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       <div><h3>Company</h3><ul><li><a href="CDL-check-demo-r4.html#contact">Contact</a></li><li><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li><li><a href="#">Log in</a></li></ul></div>
     </div>
     <div class="legal">
-      <span>© 2026 Customs Data Lock LLC</span>
+      <span>© 2026 Customs Data Lock LLC <a href="CDL-privacy-r4.html">Privacy Policy</a> <a href="CDL-accessibility-r4.html">Accessibility</a></span>
       <span>Privacy practiced on this site: no chat widgets, no tracking pixels, no cookie banners to dismiss.</span>
     </div>
   </div>
