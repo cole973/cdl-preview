@@ -275,8 +275,11 @@ section[id], [data-anchor] { scroll-margin-top: 76px; }
 .tip:hover, .tip:focus-visible, .tip[aria-expanded="true"] { color: var(--gray-blue); outline: none; }
 .tip .bub { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(calc(-50% + var(--shift, 0px))); width: 290px; max-width: calc(100vw - 24px); padding: 12px 14px; border-radius: 12px; background: var(--deep); color: #fff; font: 400 13.5px/20px var(--font-sans); letter-spacing: 0; text-align: left; text-transform: none; white-space: normal; box-shadow: 0 2px 4px rgba(16,32,56,.1), 0 18px 40px -12px rgba(16,32,56,.45); opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility .15s; z-index: 80; pointer-events: none; }
 .tip .bub b { display: block; font-weight: 600; margin-bottom: 4px; }
+.tip .bub .p { display: block; margin-top: 8px; }
 .tip .bub::after { content: ""; position: absolute; top: 100%; left: calc(50% - var(--shift, 0px) - 6px); border: 6px solid transparent; border-top-color: var(--deep); }
 .tip:hover .bub, .tip:focus-visible .bub, .tip[aria-expanded="true"] .bub { opacity: 1; visibility: visible; }
+.tip.below .bub { bottom: auto; top: calc(100% + 10px); } /* not enough room above: open underneath */
+.tip.below .bub::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--deep); }
 
 /* legal pages */
 .legal-pg { padding: 72px 0 96px; }
@@ -505,7 +508,17 @@ window.cdlDone = function (card) {
 // info icons: hover or focus shows the definition; a tap toggles it (phones); Escape or a tap elsewhere closes it
 (function () {
   const tips = [...document.querySelectorAll('.tip')]; if (!tips.length) return;
-  const place = t => { const b = t.querySelector('.bub'); b.style.setProperty('--shift', '0px'); const r = b.getBoundingClientRect(); let s = 0; if (r.left < 12) s = 12 - r.left; else if (r.right > innerWidth - 12) s = innerWidth - 12 - r.right; b.style.setProperty('--shift', s + 'px'); };
+  // keep the whole bubble visible: inside the window and inside any card that clips its overflow
+  const bounds = el => { let top = 8, left = 8, right = innerWidth - 8, bottom = innerHeight - 8;
+    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) { const cs = getComputedStyle(p);
+      if (/(hidden|clip|auto|scroll)/.test(cs.overflow + cs.overflowX + cs.overflowY)) { const r = p.getBoundingClientRect(); top = Math.max(top, r.top + 4); left = Math.max(left, r.left + 4); right = Math.min(right, r.right - 4); bottom = Math.min(bottom, r.bottom - 4); } }
+    return { top, left, right, bottom }; };
+  const place = t => { const b = t.querySelector('.bub'), lim = bounds(t);
+    t.classList.remove('below'); b.style.setProperty('--shift', '0px');
+    let r = b.getBoundingClientRect();
+    if (r.top < lim.top) { t.classList.add('below'); r = b.getBoundingClientRect(); }
+    let s = 0; if (r.left < lim.left) s = lim.left - r.left; else if (r.right > lim.right) s = lim.right - r.right;
+    b.style.setProperty('--shift', s + 'px'); };
   const closeAll = except => tips.forEach(t => { if (t !== except) t.setAttribute('aria-expanded', 'false'); });
   tips.forEach(t => {
     t.addEventListener('mouseenter', () => place(t)); t.addEventListener('focus', () => place(t));

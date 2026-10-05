@@ -275,8 +275,11 @@ section[id], [data-anchor] { scroll-margin-top: 76px; }
 .tip:hover, .tip:focus-visible, .tip[aria-expanded="true"] { color: var(--gray-blue); outline: none; }
 .tip .bub { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(calc(-50% + var(--shift, 0px))); width: 290px; max-width: calc(100vw - 24px); padding: 12px 14px; border-radius: 12px; background: var(--deep); color: #fff; font: 400 13.5px/20px var(--font-sans); letter-spacing: 0; text-align: left; text-transform: none; white-space: normal; box-shadow: 0 2px 4px rgba(16,32,56,.1), 0 18px 40px -12px rgba(16,32,56,.45); opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility .15s; z-index: 80; pointer-events: none; }
 .tip .bub b { display: block; font-weight: 600; margin-bottom: 4px; }
+.tip .bub .p { display: block; margin-top: 8px; }
 .tip .bub::after { content: ""; position: absolute; top: 100%; left: calc(50% - var(--shift, 0px) - 6px); border: 6px solid transparent; border-top-color: var(--deep); }
 .tip:hover .bub, .tip:focus-visible .bub, .tip[aria-expanded="true"] .bub { opacity: 1; visibility: visible; }
+.tip.below .bub { bottom: auto; top: calc(100% + 10px); } /* not enough room above: open underneath */
+.tip.below .bub::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--deep); }
 
 /* nav over a photo (from the pricing page) */
 .nav-logo { height: 38px; width: auto; display: block; transition: height .25s var(--ease); }
@@ -350,29 +353,7 @@ section[id], [data-anchor] { scroll-margin-top: 76px; }
 .form-error { color: var(--coral); font-size: 14px; margin-top: 12px; }
 @media (max-width: 560px) { .row3 { grid-template-columns: 1fr 1fr; } .row3 .field:first-child { grid-column: 1 / -1; } }
 
-/* book-a-call calendar */
-.cal { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
-.cal .ch { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.cal .ch b { font-size: 15px; font-weight: 600; } .cal .ch span { font-size: 12.5px; color: var(--muted-2); }
-.cal .wk { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
-.cal .wkh { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); text-align: center; }
-.cal .d { height: 52px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; cursor: pointer; font: inherit; color: var(--text); }
-.cal .d small { font-size: 11px; color: var(--muted-2); } .cal .d b { font-size: 17px; font-weight: 600; line-height: 20px; }
-.cal .d:hover:not(:disabled) { border-color: var(--gray-blue); }
-.cal .d:disabled { background: transparent; border-style: dashed; color: var(--muted-2); opacity: .45; cursor: default; }
-.cal .d.today small { color: var(--coral); }
-.cal .d[aria-pressed="true"] { background: var(--indigo); border-color: var(--indigo); color: #fff; } .cal .d[aria-pressed="true"] small { color: rgba(255,255,255,.75); }
-.cal .gap { visibility: hidden; }
-.times { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
-.times button { height: 40px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font: inherit; font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; }
-.times button:hover { border-color: var(--gray-blue); }
-.times button[aria-pressed="true"] { background: var(--coral); border-color: var(--coral); color: #fff; }
-.times .none { grid-column: 1 / -1; font-size: 14px; color: var(--muted); padding: 6px 0; }
-.picked { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--ground); font-size: 14px; color: var(--muted); }
-.picked b { color: var(--text); font-weight: 600; }
-.cal.bad .ch b { color: var(--coral); } .cal.bad #calErr { display: block; }
 .field textarea { height: 96px; padding: 12px 16px; resize: vertical; }
-@media (max-width: 460px) { .times { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cal .d { height: 48px; } }
 </style>
 <style>
 /* page skeleton: an outline of the page paints first, so the site is never blank while it loads; the real nav sits above it and stays usable */
@@ -441,7 +422,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   <img class="bg" src="photography/web/cdl-06-rail-yard-dusk.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
   <div class="bin"><div class="shell">
     <h1 class="rise" id="h1"><span class="w">Book</span> <span class="w">a</span> <span class="w">quick</span> <span class="w">call.</span></h1>
-    <p class="sub reveal">Enterprise starts with a short phone call, about 15 minutes, to learn what you need. No video, no slides. Pick a time that suits you, every time is Eastern.</p>
+    <p class="sub reveal">Enterprise starts with a short phone call, about 15 minutes, to learn what you need. No video, no slides. Send your details and we will give you a call or send you an email to set up a time.</p>
   </div></div>
 </section>
 
@@ -449,29 +430,22 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   <div class="shell split">
     <div>
       <div class="ans reveal" id="ans" hidden><div class="ah"><b>Your answers</b><a class="tlink" id="ansChange" href="CDL-pricing-demo-r4.html#funnel">Change</a></div><ul id="ansList"></ul></div>
-      <ol class="next reveal"><li><b>Pick a time</b><span>Any open slot in the next two weeks. Every time is Eastern.</span></li><li><b>We call you</b><span>A 15-minute phone call to learn your entities, your volume and what you need.</span></li><li><b>Your proposal follows</b><span>A signed-off entity map, then the proposal and vendor pack.</span></li></ol>
+      <ol class="next reveal"><li><b>We reach out</b><span>We give you a call or send you an email to set up a time that works.</span></li><li><b>A quick call</b><span>About 15 minutes by phone to learn your entities, your volume and what you need.</span></li><li><b>Your proposal follows</b><span>A signed-off entity map, then the proposal and vendor pack.</span></li></ol>
     </div>
 
     <div class="fcard reveal" id="fcard">
       <form id="reqForm" novalidate>
         <h2>Book a call</h2>
         <p class="lede">Enterprise plan · six or more entities</p>
-        <div class="field" id="f-company"><label for="company">Company legal name<button type="button" class="tip" aria-label="What is this: Company legal name" aria-expanded="false" aria-describedby="tip-legal">i<span class="bub" role="tooltip" id="tip-legal"><b>Company legal name</b>The registered name of your company, the one on your formation papers and tax filings, like Your Company LLC. Brands and DBAs are separate.</span></button></label><input id="company" name="company" type="text" autocomplete="organization" placeholder="The parent company" required><div class="err">We need the company name.</div></div><div class="row2"><div class="field" id="f-name"><label for="name">First name</label><input id="name" name="name" type="text" autocomplete="given-name" required><div class="err">Just a first name is fine.</div></div><div class="field" id="f-title"><label for="title">Job title <span class="opt">optional</span></label><input id="title" name="title" type="text" autocomplete="organization-title" placeholder="Owner, CFO, Supply chain"></div></div><div class="field" id="f-email"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><div class="err">That does not look like an email.</div></div><div class="field" id="f-phone"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-0100" inputmode="tel" required><div class="hint">The number we will call. A direct line is best.</div><div class="err">A number we can call, with area code.</div></div><div class="cal" id="cal" aria-label="Pick a time for your call">
-          <div class="ch"><b>Pick a time</b><span>All times Eastern (ET) · 15-minute phone call</span></div>
-          <div class="wkh"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div>
-          <div id="calWeeks"></div>
-          <div class="times" id="calTimes"></div>
-          <div class="picked" id="calPicked" hidden></div>
-          <div class="err" id="calErr">Pick a day and a time.</div>
-        </div><div class="field" id="f-note"><label for="note">Anything we should know before the call <span class="opt">optional</span></label><textarea id="note" name="note" placeholder="How many entities, a deadline, a procurement review"></textarea></div>
+        <div class="field" id="f-company"><label for="company">Company legal name<button type="button" class="tip" aria-label="What is this: Company legal name" aria-expanded="false" aria-describedby="tip-legal">i<span class="bub" role="tooltip" id="tip-legal"><b>Company legal name</b>The registered name of your company, the one on your formation papers and tax filings, like Your Company LLC. Brands and DBAs are separate.</span></button></label><input id="company" name="company" type="text" autocomplete="organization" placeholder="The parent company" required><div class="err">We need the company name.</div></div><div class="row2"><div class="field" id="f-name"><label for="name">First name</label><input id="name" name="name" type="text" autocomplete="given-name" required><div class="err">Just a first name is fine.</div></div><div class="field" id="f-title"><label for="title">Job title <span class="opt">optional</span></label><input id="title" name="title" type="text" autocomplete="organization-title" placeholder="Owner, CFO, Supply chain"></div></div><div class="field" id="f-email"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><div class="err">That does not look like an email.</div></div><div class="field" id="f-phone"><label for="phone">Phone number <span class="opt">optional</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-0100" inputmode="tel"><div class="hint">The best number to reach you. A direct line is best.</div><div class="err">A number we can call, with area code.</div></div><div class="field" id="f-note"><label for="note">Anything we should know before the call <span class="opt">optional</span></label><textarea id="note" name="note" placeholder="How many entities, a deadline, a procurement review"></textarea></div>
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <button class="pill pill-lg pill-dark" type="submit">Book my call</button>
+        <button class="pill pill-lg pill-dark" type="submit">Request my call</button>
         <p class="fine">We never share your information. You hear from a person, not a sequence.</p>
       </form>
       <div class="done" aria-live="polite">
         <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
         <h2>Thank you.</h2>
-        <p>We will call you at <b id="donePhone"></b> on <b id="doneWhen"></b>.</p>
+        <p>We will give you a call or send you an email to set up a time.</p>
         <a class="pill pill-light" href="CDL-home-demo-r4.html#stakes">Meanwhile, see who reads your record</a>
       </div>
     </div>
@@ -594,7 +568,17 @@ window.cdlDone = function (card) {
 // info icons: hover or focus shows the definition; a tap toggles it (phones); Escape or a tap elsewhere closes it
 (function () {
   const tips = [...document.querySelectorAll('.tip')]; if (!tips.length) return;
-  const place = t => { const b = t.querySelector('.bub'); b.style.setProperty('--shift', '0px'); const r = b.getBoundingClientRect(); let s = 0; if (r.left < 12) s = 12 - r.left; else if (r.right > innerWidth - 12) s = innerWidth - 12 - r.right; b.style.setProperty('--shift', s + 'px'); };
+  // keep the whole bubble visible: inside the window and inside any card that clips its overflow
+  const bounds = el => { let top = 8, left = 8, right = innerWidth - 8, bottom = innerHeight - 8;
+    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) { const cs = getComputedStyle(p);
+      if (/(hidden|clip|auto|scroll)/.test(cs.overflow + cs.overflowX + cs.overflowY)) { const r = p.getBoundingClientRect(); top = Math.max(top, r.top + 4); left = Math.max(left, r.left + 4); right = Math.min(right, r.right - 4); bottom = Math.min(bottom, r.bottom - 4); } }
+    return { top, left, right, bottom }; };
+  const place = t => { const b = t.querySelector('.bub'), lim = bounds(t);
+    t.classList.remove('below'); b.style.setProperty('--shift', '0px');
+    let r = b.getBoundingClientRect();
+    if (r.top < lim.top) { t.classList.add('below'); r = b.getBoundingClientRect(); }
+    let s = 0; if (r.left < lim.left) s = lim.left - r.left; else if (r.right > lim.right) s = lim.right - r.right;
+    b.style.setProperty('--shift', s + 'px'); };
   const closeAll = except => tips.forEach(t => { if (t !== except) t.setAttribute('aria-expanded', 'false'); });
   tips.forEach(t => {
     t.addEventListener('mouseenter', () => place(t)); t.addEventListener('focus', () => place(t));
@@ -605,81 +589,33 @@ window.cdlDone = function (card) {
 </script>
 <script>
 (function(){
-  // book a call: two weeks of open times, Eastern. The page builds them from the default hours on the static preview;
-  // scripts/sync-site.ts swaps the two marked lines so production reads real availability and books for real.
+  // call request (Enterprise): no calendar; we call or email to set a time.
+  // Sending. On the static preview this pretends to succeed; scripts/sync-site.ts swaps this one line for a real POST.
   const SEND = (url, body) => new Promise(r => setTimeout(() => r({ ok: true, json: async () => ({ ok: true }) }), 400));
-  const LOAD_SLOTS = () => Promise.resolve(null);
-  const TZ = 'America/New_York', CALL = 15, STEP = 30, DAYS = 14, NOTICE = 120;
-  const HOURS = { 1: [[600, 720], [780, 1020]], 2: [[600, 720], [780, 1020]], 3: [[600, 720], [780, 1020]], 4: [[600, 720], [780, 1020]], 5: [[600, 720], [780, 1020]] };
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const p = new URLSearchParams(location.search);
   const L = { industry: { consumer: 'Consumer goods', food: 'Food and beverage', industrial: 'Industrial', electronics: 'Electronics', other: 'Something else' }, entities: { '1': 'One entity', '2-5': 'Two to five entities', '6+': 'Six or more entities' }, shipments: { lt50: 'Under 50 shipments a year', '50-500': '50 to 500 shipments a year', '500-2000': '500 to 2,000 shipments a year', '2000+': '2,000+ shipments a year' }, names: { none: 'One name', few: 'A few other names', many: 'Many other names' } };
   const answers = {}; Object.keys(L).forEach(k => { const v = p.get(k); if (v && L[k][v]) answers[k] = v; });
   const keys = Object.keys(answers); if (keys.length) { document.getElementById('ansList').innerHTML = keys.map(k => `<li>${L[k][answers[k]]}</li>`).join(''); document.getElementById('ans').hidden = false; }
-
-  // Eastern time helpers (mirror src/lib/calls/slots.ts)
-  const parts = (d, o) => Object.fromEntries(new Intl.DateTimeFormat('en-US', Object.assign({ timeZone: TZ }, o)).formatToParts(d).map(x => [x.type, x.value]));
-  const etYmd = d => { const q = parts(d, { year: 'numeric', month: '2-digit', day: '2-digit' }); return `${q.year}-${q.month}-${q.day}`; };
-  const addDays = (ymd, n) => { const [y, m, d] = ymd.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10); };
-  const wd = ymd => new Date(ymd + 'T12:00:00Z').getUTCDay();
-  function etToInstant(ymd, minutes) { const [y, m, d] = ymd.split('-').map(Number); const guess = Date.UTC(y, m - 1, d, 0, minutes);
-    const off = t => { const q = parts(new Date(t), { hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }); return Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour, +q.minute) - t; };
-    let t = guess - off(guess); t = guess - off(t); return new Date(t); }
-  function defaultSlots(now) { const earliest = now.getTime() + NOTICE * 60000, today = etYmd(now), out = [];
-    for (let i = 0; i < DAYS; i++) { const day = addDays(today, i); (HOURS[wd(day)] || []).forEach(([a, b]) => { for (let m = a; m + CALL <= b; m += STEP) { const at = etToInstant(day, m); if (at.getTime() >= earliest) out.push({ start: at.toISOString(), day, minutes: m }); } }); }
-    return out; }
-  const fmtTime = iso => new Intl.DateTimeFormat('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' }).format(new Date(iso));
-  const fmtLong = iso => new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'long', month: 'long', day: 'numeric' }).format(new Date(iso)) + ' at ' + fmtTime(iso) + ' ET';
-
-  const weeksEl = document.getElementById('calWeeks'), timesEl = document.getElementById('calTimes'), pickedEl = document.getElementById('calPicked'), cal = document.getElementById('cal');
-  let slots = [], byDay = {}, day = null, pick = null;
-  function render() {
-    byDay = {}; slots.forEach(s => (byDay[s.day] = byDay[s.day] || []).push(s));
-    const today = etYmd(new Date()); const last = addDays(today, DAYS - 1);
-    // Monday of this week, Eastern
-    let start = today; while (wd(start) !== 1) start = addDays(start, wd(start) === 0 ? 1 : -1);
-    let html = '';
-    for (let w = start; w <= last; w = addDays(w, 7)) {
-      html += '<div class="wk">';
-      for (let i = 0; i < 5; i++) { const d = addDays(w, i); const label = parts(new Date(d + 'T12:00:00Z'), { month: 'short', day: 'numeric' });
-        const open = d >= today && d <= last && byDay[d] && byDay[d].length;
-        html += `<button type="button" class="d${d === today ? ' today' : ''}" data-day="${d}" ${open ? '' : 'disabled'} aria-pressed="${d === day}"><small>${d === today ? 'Today' : label.month}</small><b>${label.day}</b></button>`; }
-      html += '</div>';
-    }
-    weeksEl.innerHTML = html;
-    weeksEl.querySelectorAll('.d:not(:disabled)').forEach(b => b.addEventListener('click', () => { day = b.dataset.day; pick = null; render(); }));
-    if (!slots.length) { timesEl.innerHTML = '<p class="none">No open times in the next two weeks. Email services@customsdatalock.com and we will find one.</p>'; }
-    else if (!day) { timesEl.innerHTML = '<p class="none">Pick a day to see open times.</p>'; }
-    else { timesEl.innerHTML = (byDay[day] || []).map(s => `<button type="button" data-start="${s.start}" aria-pressed="${pick === s.start}">${fmtTime(s.start)}</button>`).join('');
-      timesEl.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { pick = b.dataset.start; cal.classList.remove('bad'); render(); })); }
-    pickedEl.hidden = !pick; if (pick) pickedEl.innerHTML = `Your call: <b>${fmtLong(pick)}</b>`;
-  }
-  function load() { return LOAD_SLOTS().then(s => { slots = s || defaultSlots(new Date()); if (day && !(slots.some(x => x.day === day))) day = null; if (!day && slots.length) day = slots[0].day; render(); }).catch(() => { slots = defaultSlots(new Date()); render(); }); }
-  load();
-
   const form = document.getElementById('reqForm'), card = document.getElementById('fcard');
   const company = p.get('company'); if (company) form.company.value = company;
   const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const req = ['company', 'name', 'email', 'phone'];
-  const check = id => { const el = document.getElementById(id); const v = el.value.trim(); const ok = id === 'email' ? emailOk(v) : id === 'phone' ? v.replace(/\D/g, '').length >= 10 : v.length > 1; document.getElementById('f-' + id).classList.toggle('bad', !ok); el.setAttribute('aria-invalid', !ok); return ok; };
+  const check = id => { const el = document.getElementById(id); const v = el.value.trim(); const ok = id === 'email' ? emailOk(v) : id === 'phone' ? (!v || v.replace(/\D/g, '').length >= 10) : v.length > 1; document.getElementById('f-' + id).classList.toggle('bad', !ok); el.setAttribute('aria-invalid', !ok); return ok; };
   req.forEach(id => document.getElementById(id).addEventListener('blur', () => check(id)));
   form.addEventListener('submit', e => {
     e.preventDefault(); if (form.website.value) return;
-    const bad = req.filter(id => !check(id)); const noPick = !pick; cal.classList.toggle('bad', noPick);
-    if (bad.length) { document.getElementById(bad[0]).focus(); return; }
-    if (noPick) { cal.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); return; }
+    const bad = req.filter(id => !check(id)); if (bad.length) { document.getElementById(bad[0]).focus(); return; }
     const v = id => document.getElementById(id).value.trim();
-    const body = { kind: 'consultation', plan: 'Enterprise', company: v('company'), name: v('name'), jobTitle: v('title'), email: v('email'), phone: v('phone'), callAt: pick, note: v('note'),
+    const body = { kind: 'consultation', plan: 'Enterprise', company: v('company'), name: v('name'), jobTitle: v('title'), email: v('email'), phone: v('phone'), note: v('note'),
       answers: { industry: answers.industry || null, entities: answers.entities || null, shipments: answers.shipments || null, names: answers.names || null }, website: form.website.value, source: location.pathname };
-    const btn = form.querySelector('button[type="submit"]'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Booking…';
+    const btn = form.querySelector('button[type="submit"]'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
     const old = form.querySelector('.form-error'); if (old) old.remove();
     SEND('/api/pricing', body)
-      .then(async r => { const j = await r.json().catch(() => ({})); if (!r.ok) { const err = new Error(j.error || 'Something went wrong. Please try again.'); err.code = j.code; throw err; }
-        document.getElementById('donePhone').textContent = v('phone'); document.getElementById('doneWhen').textContent = fmtLong(pick); cdlDone(card); })
-      .catch(err => { if (err.code === 'slot_taken') { pick = null; load(); } const m = document.createElement('p'); m.className = 'form-error'; m.setAttribute('role', 'alert'); m.textContent = err.message; btn.insertAdjacentElement('afterend', m); })
+      .then(async r => { const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || 'Something went wrong. Please try again.'); cdlDone(card); })
+      .catch(err => { const m = document.createElement('p'); m.className = 'form-error'; m.setAttribute('role', 'alert'); m.textContent = err.message; btn.insertAdjacentElement('afterend', m); })
       .finally(() => { btn.disabled = false; btn.textContent = label; });
   });
-  if (p.get('state') === 'sent') { document.getElementById('donePhone').textContent = '(312) 555-0142'; document.getElementById('doneWhen').textContent = 'Tuesday, October 6 at 10:30 AM ET'; card.classList.add('sent'); }
+  if (p.get('state') === 'sent') card.classList.add('sent');
 })();
 </script>
 </body>
