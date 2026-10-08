@@ -1061,8 +1061,8 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
   // globe loader: fetch the 3D library only when the routes section is about a viewport away, or right away for static frames
   (function(){
     const sec = document.getElementById('routes'); if (!sec) return;
-    let started = false;
-    const start = (e) => { if (started) return; started = true; window.__globeTrigger = e && e.type ? e.type : (e && e.length ? 'intersect' : 'direct'); const go = () => { const sc = document.createElement('script'); sc.src = 'https://unpkg.com/globe.gl@2.34.3/dist/globe.gl.min.js'; sc.onload = () => window.__initGlobe && window.__initGlobe(); sc.onerror = () => { const f = document.getElementById('globeFallback'); if (f) f.style.display = 'flex'; if (window.__globeReveal) window.__globeReveal(); }; document.head.appendChild(sc); }; if (isStatic || !('requestIdleCallback' in window)) go(); else requestIdleCallback(go, { timeout: 1500 }); };
+    let started = false; const GEO = window.__globeGeo = 'https://unpkg.com/globe.gl@2.46.2/example/datasets/ne_110m_admin_0_countries.geojson';  // fetched alongside the library, not after it
+    const start = (e) => { if (started) return; started = true; window.__globeTrigger = e && e.type ? e.type : (e && e.length ? 'intersect' : 'direct'); const go = () => { window.__globeCountries = fetch(GEO).then(r => r.json()); const sc = document.createElement('script'); sc.src = 'https://unpkg.com/globe.gl@2.34.3/dist/globe.gl.min.js'; sc.onload = () => window.__initGlobe && window.__initGlobe(); sc.onerror = () => { const f = document.getElementById('globeFallback'); if (f) f.style.display = 'flex'; if (window.__globeReveal) window.__globeReveal(); }; document.head.appendChild(sc); }; if (isStatic || !('requestIdleCallback' in window)) go(); else requestIdleCallback(go, { timeout: 1500 }); };
     if (isStatic || qs.get('globe') === 'now' || !('IntersectionObserver' in window)) return start();
     // first sign of a person (scroll, pointer, key, touch) or the section coming into view, whichever is first
     const once = { once: true, passive: true }; ['pointermove', 'pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(ev => addEventListener(ev, start, once));
@@ -1130,7 +1130,17 @@ window.__initGlobe = function(){ try {
     }
     // transparent globe: no texture, a barely-there dark sphere so the band shows through the oceans
     const mat = g.globeMaterial(); mat.color.set('#000000'); mat.transparent = false; mat.opacity = 1; mat.emissive.set('#EDEDEA'); mat.emissiveIntensity = 1; mat.shininess = 0; mat.depthWrite = true;
-    fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson').then(r => r.json()).then(c => { if (window.__globeReveal) window.__globeReveal(); g.hexPolygonsData(c.features).hexPolygonResolution(4).hexPolygonMargin(.38).hexPolygonAltitude(.004).hexPolygonColor(f => f.properties.ISO_A2 === 'US' ? '#1D395B' : 'rgba(120,132,150,.45)'); }).catch(() => {});
+    // dotting every country in one call froze the page for ~3s, so: the U.S. first, then the rest nearest-first, a frame's worth at a time
+    g.hexPolygonResolution(4).hexPolygonMargin(.38).hexPolygonAltitude(.004).hexPolygonColor(f => f.properties.ISO_A2 === 'US' ? '#1D395B' : 'rgba(120,132,150,.45)');
+    (window.__globeCountries || fetch(window.__globeGeo).then(r => r.json())).then(c => {
+      const near = f => { const b = f.bbox || [0, 0, 0, 0]; return f.properties.ISO_A2 === 'US' ? -1 : Math.hypot(((b[0] + b[2]) / 2 - home.lng + 540) % 360 - 180, (b[1] + b[3]) / 2 - home.lat); };
+      const todo = c.features.slice().sort((a, b) => near(a) - near(b)), shown = [];
+      if (isStatic) { g.hexPolygonsData(todo); if (window.__globeReveal) window.__globeReveal(); return; }
+      // the dotting runs on the next frame at ~15ms a country whatever its size, so three countries a frame keeps scrolling smooth
+      (function step(){ shown.push(...todo.splice(0, shown.length ? 3 : 1)); g.hexPolygonsData(shown.slice());
+        if (shown.length === 1 && window.__globeReveal) window.__globeReveal();
+        if (todo.length) requestAnimationFrame(() => setTimeout(step, 0)); })();
+    }).catch(() => {});
     // slow sway around the U.S. instead of a full spin
     const home = { lat: 30, lng: -96, altitude: 2.05 }; g.pointOfView(home, 0);
     const ctl = g.controls(); ctl.autoRotate = false; ctl.enableZoom = false;
