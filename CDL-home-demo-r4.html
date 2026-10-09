@@ -91,7 +91,7 @@ button, input { font: inherit; }
 .nav-dd-btn svg { transition: transform .2s var(--ease); }
 .nav-dd-btn:hover, .nav-dd-btn[aria-expanded="true"], .nav-dd-btn[aria-current="page"] { background: var(--card-2); }
 .nav-dd-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
-.nav-dd-menu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 300px; background: rgba(244,244,242,.62); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgba(255,255,255,.55); border-radius: 18px; box-shadow: 0 2px 4px rgba(20,30,50,.05), 0 24px 48px -16px rgba(20,30,50,.25); padding: 8px; opacity: 0; visibility: hidden; transition: opacity .2s var(--ease), transform .2s var(--ease), visibility 0s linear .2s; z-index: 60; text-align: left; }
+.nav-dd-menu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 300px; background: rgb(244,244,242); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgba(255,255,255,.55); border-radius: 18px; box-shadow: 0 2px 4px rgba(20,30,50,.05), 0 24px 48px -16px rgba(20,30,50,.25); padding: 8px; opacity: 0; visibility: hidden; transition: opacity .2s var(--ease), transform .2s var(--ease), visibility 0s linear .2s; z-index: 60; text-align: left; }
 .nav-dd.open .nav-dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); transition: opacity .2s var(--ease), transform .2s var(--ease), visibility 0s; }
 .nav-dd-menu a { display: block; padding: 10px 12px; border-radius: 12px; text-decoration: none; color: var(--text); }
 .topbar.over .nav-dd-menu { background: rgba(21,44,73,.38); border-color: rgba(255,255,255,.22); box-shadow: 0 24px 48px -16px rgba(0,0,0,.45); }
@@ -864,7 +864,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       <div class="in">
         <blockquote>“Our factory told us, almost as a compliment, that two competitors had been asking about us. Since April 2025, not one new shipment has shown up.”</blockquote>
         <div class="who"><b>Head of Sourcing</b>Private-label apparel importer, two entities. Name withheld.</div>
-        <a class="pill pill-ghost" href="CDL-blog-demo-r4.html">Read the stories</a>
+        <a class="pill pill-ghost" href="CDL-testimonials-demo-r4.html">Read the stories</a>
       </div>
     </div>
   </div>
@@ -914,7 +914,7 @@ html.skel-fast .pskel, html.skel-fast .skel-img, html.skel-fast .skel-lines, htm
       </div>
       <div><h3>Product</h3><ul><li><a href="#how">How it works</a></li><li><a href="#check">Free Exposure Check</a></li><li><a href="CDL-pricing-demo-r4.html">Pricing</a></li></ul></div>
       <div><h3>Resources</h3><ul><li><a href="CDL-testimonials-demo-r4.html">Stories</a></li><li><a href="CDL-blog-demo-r4.html">Blog</a></li><li><a href="CDL-faq-demo-r4.html">FAQ</a></li></ul></div>
-      <div><h3>Company</h3><ul><li><a href="CDL-check-demo-r4.html#contact">Contact</a></li><li><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li><li><a href="#">Log in</a></li></ul></div>
+      <div><h3>Company</h3><ul><li><a href="CDL-check-demo-r4.html#contact">Contact</a></li><li><a href="mailto:services@customsdatalock.com">services@customsdatalock.com</a></li><li><a href="CDL-login-demo-r4.html">Log in</a></li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Customs Data Lock LLC <a href="CDL-privacy-r4.html">Privacy Policy</a> <a href="CDL-accessibility-r4.html">Accessibility</a></span>
@@ -1167,7 +1167,7 @@ window.__initGlobe = function(){ try {
     let stops = [], total = 0, shown = 0, target = 0, quay = null, runStart = 0;
     function build() {
       const mr = main.getBoundingClientRect(); const W = main.clientWidth; // no viewBox: the drawing is in page pixels and the svg is sized by CSS, so a rebuild while the page is still growing never rescales or recentres it (that was a 0.46 layout shift)
-      const x = Math.max(28, (W - 1360) / 2 + 6);
+      const x = Math.max(62, (W - 1360) / 2 + 6);
       stops = [...main.querySelectorAll('[data-chapter]')].map(s => { const r = s.getBoundingClientRect(); const isHero = s.id === 'hero'; return { el: s, n: s.dataset.chapter, label: s.dataset.chapterLabel, x, y: r.top - mr.top + (s.id === 'routes' ? 150 : -22), hero: false }; });
       if (stops.length < 2) return;
       let d = `M ${stops[0].x},${stops[0].y - 30} L ${stops[0].x},${stops[0].y}`;
@@ -1256,7 +1256,7 @@ window.__initGlobe = function(){ try {
   (function(){
     const dd = document.getElementById('navDd'); if (!dd) return; const btn = dd.querySelector('.nav-dd-btn'); let t;
     const set = o => { dd.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); };
-    btn.addEventListener('click', () => set(!dd.classList.contains('open')));
+    btn.addEventListener('click', e => { if (e.detail && matchMedia('(pointer: fine)').matches && innerWidth > 960) return set(true); set(!dd.classList.contains('open')); });
     dd.addEventListener('mouseenter', () => { if (matchMedia('(pointer: fine)').matches && innerWidth > 960) { clearTimeout(t); set(true); } });
     dd.addEventListener('mouseleave', () => { if (innerWidth > 960) t = setTimeout(() => set(false), 160); });
     document.addEventListener('click', e => { if (!dd.contains(e.target)) set(false); });
